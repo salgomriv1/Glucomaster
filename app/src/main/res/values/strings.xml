@@ -8,4 +8,16 @@
     <string name="reg1">¿Aún no estas registrado?</string>
     <string name="reglink"><u>Registrate</u></string>
     <string name="iniciarsesionconG">Iniciar sesión con Google</string>
+    <string name="loginEnBlanco">Ni el email ni la contraseña pueden estar vacios</string>
+    <string name="authOK">" logueado"</string>
+    <string name="errorLog">Error de mail o de contraseña</string>
+    <string name="default_web_client_id" />
+    <string name="crearCuenta">Registro</string>
+    <string name="nombre">Nombre de usuario</string>
+    <string name="btncrearCuenta">Crear cuenta</string>
+    <string name="camposvacios">Ninguno de los campos puede estar vacio</string>
+    <string name="passmenor6">La contraseña no puede tener menos de 6 caracteres</string>
+    <string name="passnocoinciden">Las contraseñas no coinciden</string>
+    <string name="cuentacreada">Cuenta creada con exito</string>
+    <string name="correoenuso">Este correo ya esta en uso</string>
 </resources>
