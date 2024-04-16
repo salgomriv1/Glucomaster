@@ -20,4 +20,9 @@
     <string name="passnocoinciden">Las contraseñas no coinciden</string>
     <string name="cuentacreada">Cuenta creada con exito</string>
     <string name="correoenuso">Este correo ya esta en uso</string>
+    <string name="ResetpassTitle">Reset contraseña</string>
+    <string name="btnresetpass">Restablecer</string>
+    <string name="resetOK">Se envió correo de reseteo de contraseña</string>
+    <string name="resetKO">No se encontró la cuenta</string>
+    <string name="resetempty">El email no puede estar vacio</string>
 </resources>

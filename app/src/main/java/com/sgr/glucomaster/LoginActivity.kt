@@ -79,6 +79,12 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent (this, RegisterActivity::class.java)
             startActivity(intent)
         }
+
+        binding.tvReestablecerPass.setOnClickListener() {
+
+            val intent = Intent (this, ResetPassActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     //AUTH GOOGLE

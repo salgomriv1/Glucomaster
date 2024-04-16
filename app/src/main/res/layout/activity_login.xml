@@ -12,7 +12,7 @@
         android:id="@+id/tvLoginTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="150dp"
         android:text="@string/LoginTitle"
         android:textColor="#023137"
         android:textSize="70sp"
@@ -25,7 +25,8 @@
         android:id="@+id/etLoginMail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="50dp"
+        android:textSize="20sp"
         android:ems="10"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
@@ -37,7 +38,7 @@
         android:id="@+id/tvReestablecerPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="5dp"
         android:clickable="true"
         android:text="@string/reestablecerpass"
         android:textColor="#3F51B5"
@@ -51,8 +52,9 @@
         android:id="@+id/btnIniciarSesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="40dp"
         android:text="@string/iniciarsesion"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvReestablecerPass" />
@@ -88,6 +90,7 @@
         android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="@string/contraseña"
+        android:textSize="20sp"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -99,10 +102,21 @@
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
         android:text="@string/iniciarsesionconG"
+        android:textSize="15sp"
         app:icon="@drawable/googleg_standard_color_18"
         app:iconGravity="textStart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="112dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logognofondo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
