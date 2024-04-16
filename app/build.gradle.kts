@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+
+    //Google services
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -33,6 +36,11 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    //ViewBinding
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -45,4 +53,15 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    //Implementation SplashScreen
+    implementation("androidx.core:core-splashscreen:1.0.1")
+    //Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
+    //Firebase Authentication library
+    implementation("com.google.firebase:firebase-auth")
+    //Google Play services library
+    implementation("com.google.android.gms:play-services-auth:21.0.0")
+    //Google Analytics
+    implementation("com.google.firebase:firebase-analytics")
 }

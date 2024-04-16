@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1083849096681",
+    "project_id": "glucomaster-2ac18",
+    "storage_bucket": "glucomaster-2ac18.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1083849096681:android:50309eda66c60473265f78",
+        "android_client_info": {
+          "package_name": "com.sgr.glucomaster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1083849096681-ta33l3m7o3kcl1nkl7uqg8qh3q5kkkpk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sgr.glucomaster",
+            "certificate_hash": "93329b433d6c542333c34cbd72f80a67337be12a"
+          }
+        },
+        {
+          "client_id": "1083849096681-ckk10ioj0lsceca2pp3nigeduflfq714.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQKCkbnl-cOSIllZmuue6ErScGYE6zvLg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1083849096681-ckk10ioj0lsceca2pp3nigeduflfq714.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

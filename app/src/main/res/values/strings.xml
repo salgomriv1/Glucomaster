@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Glucomaster</string>
+    <string name="LoginTitle">Login</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="email">Email</string>
+    <string name="reestablecerpass"><u>¿Olvidó su contraseña?</u></string>
+    <string name="iniciarsesion">Iniciar sesión</string>
+    <string name="reg1">¿Aún no estas registrado?</string>
+    <string name="reglink"><u>Registrate</u></string>
+    <string name="iniciarsesionconG">Iniciar sesión con Google</string>
 </resources>
