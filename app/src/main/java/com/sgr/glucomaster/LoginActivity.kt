@@ -49,11 +49,11 @@ class LoginActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         //Check if there is a logged user
-      /*  if (auth.currentUser != null) {
+       if (auth.currentUser != null) {
             val intent = Intent (this, MainActivity::class.java)
             startActivity(intent)
             finish()
-        }*/
+        }
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))

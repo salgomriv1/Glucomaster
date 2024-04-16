@@ -25,4 +25,6 @@
     <string name="resetOK">Se envió correo de reseteo de contraseña</string>
     <string name="resetKO">No se encontró la cuenta</string>
     <string name="resetempty">El email no puede estar vacio</string>
+    <string name="cerrarSesion">Cerrar sesión</string>
+    <string name="cierresesion">Sesión cerrada correctamente</string>
 </resources>
