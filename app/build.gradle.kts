@@ -4,6 +4,9 @@ plugins {
 
     //Google services
     id("com.google.gms.google-services")
+
+    //SQLDelight
+    id("app.cash.sqldelight")
 }
 
 android {
@@ -64,4 +67,16 @@ dependencies {
     implementation("com.google.android.gms:play-services-auth:21.0.0")
     //Google Analytics
     implementation("com.google.firebase:firebase-analytics")
+
+    //SQLDelight
+    implementation("app.cash.sqldelight:android-driver:2.0.2")
+    implementation("app.cash.sqldelight:coroutines-extensions-jvm:2.0.2")
+}
+
+sqldelight {
+    databases {
+        create("Database") {
+            packageName.set("com.sgr.glucomaster")
+        }
+    }
 }

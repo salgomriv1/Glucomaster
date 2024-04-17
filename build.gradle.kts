@@ -10,4 +10,7 @@ plugins {
 
     //Google services
     id("com.google.gms.google-services") version "4.4.1" apply false
+
+    //SQLDelight
+    id("app.cash.sqldelight") version "2.0.2" apply false
 }
