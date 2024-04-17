@@ -1,0 +1,42 @@
+-- Define table: usuarios
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT UNIQUE
+);
+
+-- Define table: pautas
+CREATE TABLE IF NOT EXISTS pautas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fecha TEXT NOT NULL,
+    turno TEXT NOT NULL,
+    user_id INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES usuarios(id)
+);
+
+-- Define table: medicaciones
+CREATE TABLE IF NOT EXISTS medicaciones (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL,
+    pauta_id INTEGER NOT NULL,
+    FOREIGN KEY (pauta_id) REFERENCES pautas(id)
+);
+
+-- Define table: restricciones
+CREATE TABLE IF NOT EXISTS restricciones (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    pauta_id INTEGER NOT NULL,
+    LimiteInferior INTEGER,
+    LimiteSuperior INTEGER,
+    dosis INTEGER,
+    FOREIGN KEY (pauta_id) REFERENCES pautas(id)
+);
+
+-- Define table: glucemias
+CREATE TABLE IF NOT EXISTS glucemias (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fecha TEXT NOT NULL,
+    turno TEXT NOT NULL,
+    valor INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES usuarios(id)
+);
