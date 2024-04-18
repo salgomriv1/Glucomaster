@@ -8,7 +8,6 @@ CREATE TABLE IF NOT EXISTS usuarios (
 CREATE TABLE IF NOT EXISTS pautas (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     fecha TEXT NOT NULL,
-    turno TEXT NOT NULL,
     user_id INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES usuarios(id)
 );
@@ -17,6 +16,7 @@ CREATE TABLE IF NOT EXISTS pautas (
 CREATE TABLE IF NOT EXISTS medicaciones (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nombre TEXT NOT NULL,
+    turno TEXT NOT NULL,
     pauta_id INTEGER NOT NULL,
     FOREIGN KEY (pauta_id) REFERENCES pautas(id)
 );
@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS restricciones (
     pauta_id INTEGER NOT NULL,
     LimiteInferior INTEGER,
     LimiteSuperior INTEGER,
+    turno TEXT NOT NULL,
     dosis INTEGER,
     FOREIGN KEY (pauta_id) REFERENCES pautas(id)
 );
@@ -40,3 +41,5 @@ CREATE TABLE IF NOT EXISTS glucemias (
     user_id INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES usuarios(id)
 );
+
+

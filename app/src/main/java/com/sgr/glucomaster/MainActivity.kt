@@ -5,10 +5,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
@@ -37,6 +35,18 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
+
+        binding.tvPautaActual.setOnClickListener() {
+
+            val intent = Intent (this, CurrentRegimenActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnAddPattern.setOnClickListener {
+
+            val intent = Intent (this, AddRegimenActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

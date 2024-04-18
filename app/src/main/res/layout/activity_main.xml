@@ -13,20 +13,114 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
+        android:theme="@style/Theme.NoactionBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:title="Glucomaster"
-        android:theme="@style/Theme.NoactionBar"
-        app:titleTextColor="@color/white"/>
+        app:titleTextColor="@color/white" />
 
     <TextView
+        android:id="@+id/tvPautaActual"
+        android:layout_width="320dp"
+        android:layout_height="84dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/rounded_corner"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="--/--/----"
+        android:textColor="@color/hardblue"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/tvTitlePautaActual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="15dp"
+        android:text="@string/tituloPautaActual"
+        android:textColor="@color/hardblue"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <Button
+        android:id="@+id/btnDesayuno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="25dp"
+        android:text="@string/desayuno"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPautaActual" />
+
+    <Button
+        android:id="@+id/btnComida"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/comida"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:layout_margin="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDesayuno" />
+
+    <Button
+        android:id="@+id/btnCena"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cena"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:layout_margin="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnComida" />
+
+    <Button
+        android:id="@+id/btnResopon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:text="@string/resopon"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCena" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAddPattern"
+        app:layout_constraintEnd_toEndOf="@+id/btnAddPattern"
+        app:layout_constraintStart_toStartOf="@+id/btnAddPattern"
+        app:layout_constraintTop_toTopOf="@+id/btnAddPattern"
+        app:layout_constraintVertical_bias="0.55"
+        app:srcCompat="@drawable/baseline_add_24" />
+
+    <Button
+        android:id="@+id/btnAddPattern"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_button_with_border"
+        android:textColor="@color/hardblue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnResopon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

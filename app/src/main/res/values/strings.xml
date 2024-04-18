@@ -27,4 +27,18 @@
     <string name="resetempty">El email no puede estar vacio</string>
     <string name="cerrarSesion">Cerrar sesión</string>
     <string name="cierresesion">Sesión cerrada correctamente</string>
+    <string name="tituloPautaActual">PAUTA ACTUAL</string>
+    <string name="desayuno">Desayuno</string>
+    <string name="comida">Comida</string>
+    <string name="cena">Cena</string>
+    <string name="resopon">Resopón</string>
+    <string name="titleActual">Actual</string>
+    <string name="date">Fecha</string>
+    <string name="medicacion">Medicación</string>
+    <string name="margenes">Margenes</string>
+    <string name="turnoDesayuno">Desayuno</string>
+    <string name="turnoComida">Comida</string>
+    <string name="turnoCena">Cena</string>
+    <string name="turnoResopon">Resopón</string>
+    <string name="cambiar">Cambiar</string>
 </resources>
