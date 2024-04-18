@@ -59,7 +59,6 @@
         android:layout_marginEnd="25dp"
         android:text="@string/desayuno"
         android:textSize="40sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPautaActual" />
@@ -70,7 +69,6 @@
         android:layout_height="wrap_content"
         android:text="@string/comida"
         android:textSize="40sp"
-        android:textStyle="bold"
         android:layout_margin="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,7 +80,6 @@
         android:layout_height="wrap_content"
         android:text="@string/cena"
         android:textSize="40sp"
-        android:textStyle="bold"
         android:layout_margin="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,7 +92,6 @@
         android:layout_margin="25dp"
         android:text="@string/resopon"
         android:textSize="40sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCena" />
@@ -122,5 +118,48 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnResopon" />
+
+    <Button
+        android:id="@+id/btnAddMed"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_button_with_border"
+        app:layout_constraintEnd_toStartOf="@+id/btnAddPattern"
+        app:layout_constraintHorizontal_bias="0.594"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnResopon" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAddMed"
+        app:layout_constraintEnd_toEndOf="@+id/btnAddMed"
+        app:layout_constraintStart_toStartOf="@+id/btnAddMed"
+        app:layout_constraintTop_toTopOf="@+id/btnAddMed"
+        app:srcCompat="@drawable/syringe1" />
+
+
+    <Button
+        android:id="@+id/btnTips"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_button_with_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.401"
+        app:layout_constraintStart_toEndOf="@+id/btnAddPattern"
+        app:layout_constraintTop_toBottomOf="@+id/btnResopon" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnTips"
+        app:layout_constraintEnd_toEndOf="@+id/btnTips"
+        app:layout_constraintStart_toStartOf="@+id/btnTips"
+        app:layout_constraintTop_toTopOf="@+id/btnTips"
+        app:srcCompat="@drawable/tips1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
