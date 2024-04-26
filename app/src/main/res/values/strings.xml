@@ -53,6 +53,8 @@
     <string name="U">U</string>
     <string name="anyadirpauta">Añadir pauta</string>
     <string name="Medicaciones">Medicaciones</string>
-    <string name="nombreMed">Nombre de la nueva medicación</string>
+    <string name="nombreMed">Nueva medicación</string>
     <string name="anyadirMed">Añadir medicación</string>
+    <string name="pautas">Pautas</string>
+    <string name="turno">Turno</string>
 </resources>
