@@ -1,5 +1,5 @@
 -- Define table: pauta_medicamento
-CREATE TABLE Pauta_Medicamento (
+CREATE TABLE Pauta_Medicacion (
     pauta_id INTEGER,
     medicamento_id INTEGER,
     turno TEXT,

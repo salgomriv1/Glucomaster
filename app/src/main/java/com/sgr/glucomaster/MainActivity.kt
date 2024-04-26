@@ -9,14 +9,17 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import app.cash.sqldelight.driver.android.AndroidSqliteDriver
 import com.google.firebase.auth.FirebaseAuth
 import com.sgr.glucomaster.databinding.ActivityMainBinding
+import com.sgr.glucomaster.db.Usuario
 
 class MainActivity : AppCompatActivity() {
 
     //Variables
     private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
+    private val database = Database(AndroidSqliteDriver(Database.Schema, this, "Database.db"))
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -35,6 +38,15 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
+
+        //Check if the user is in the local db
+        val usuario: Usuario? = database.userQueries.obtainUser(auth.currentUser?.email).executeAsOneOrNull()
+
+        //If the user is not is the DB, insert it
+        if (usuario == null) {
+            database.userQueries.insertUser(auth.currentUser?.email)
+        }
+
 
         binding.tvPautaActual.setOnClickListener() {
 
@@ -65,6 +77,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent (this, GlucemiaActivity::class.java)
             startActivity(intent)
         }
+
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

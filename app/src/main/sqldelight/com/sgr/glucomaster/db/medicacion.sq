@@ -1,7 +1,17 @@
 -- Define table: medicacion
 CREATE TABLE IF NOT EXISTS medicacion (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    nombre TEXT NOT NULL,
-    pauta_id INTEGER NOT NULL,
-    FOREIGN KEY (pauta_id) REFERENCES pauta(id)
+    nombre TEXT NOT NULL
 );
+
+-- Define query to insert medication
+insertMedication: INSERT INTO medicacion (nombre) VALUES(?);
+
+-- Define query to delete medication
+deleteMedication: DELETE FROM medicacion WHERE nombre = ?;
+
+-- Define query to get all medications
+getAllMed: SELECT * FROM medicacion;
+
+-- Define query to get a medication by id
+getMedicationById: SELECT * FROM medicacion WHERE id = ?;

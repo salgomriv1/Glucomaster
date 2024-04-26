@@ -63,4 +63,7 @@
     <string name="introducirGluc">Valor</string>
     <string name="calcularDosis">Calcular dosis</string>
     <string name="dosis2">Dosis</string>
+    <string name="medNoVacio">El campo de nueva medicación no puede estar vacio</string>
+    <string name="medAnyadida">Medicación añadida con exito</string>
+    <string name="resVacio">Ningun campo de la restriccion puede estar vacio</string>
 </resources>
