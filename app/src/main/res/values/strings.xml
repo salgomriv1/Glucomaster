@@ -41,4 +41,15 @@
     <string name="turnoCena">Cena</string>
     <string name="turnoResopon">Resopón</string>
     <string name="cambiar">Cambiar</string>
+    <string name="nuevaPauta">Nueva pauta</string>
+    <string name="fecha">Fecha</string>
+    <string name="restricciones">Márgenes</string>
+    <string name="anyadir">Añadir margen</string>
+    <string name="limInf">lim inf</string>
+    <string name="guion">-</string>
+    <string name="limSup">lim sup</string>
+    <string name="dosis">dosis</string>
+    <string name="mgl">mg/l</string>
+    <string name="U">U</string>
+    <string name="anyadirpauta">Añadir pauta</string>
 </resources>

@@ -9,7 +9,7 @@
     <style name="Theme.NoactionBar" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">#023137</item>
         <item name="colorPrimaryDark">#0071CC</item>
-        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:textColorSecondary">#377780</item>
     </style>
 
     <style name="Theme.MySplashScreen" parent="Theme.SplashScreen">

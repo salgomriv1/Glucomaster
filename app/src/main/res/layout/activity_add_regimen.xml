@@ -1,10 +1,682 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/softblue"
     tools:context=".AddRegimenActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="25dp">
+
+    <TextView
+        android:id="@+id/tvNuevaPautaTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/nuevaPauta"
+        android:textColor="@color/hardblue"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:ems="10"
+        android:hint="@string/fecha"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNuevaPautaTitle" />
+
+    <TextView
+        android:id="@+id/tvNuevaDesayunoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/turnoDesayuno"
+        android:textColor="@color/hardblue"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etFecha" />
+
+    <Spinner
+        android:id="@+id/spDesayuno"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tvNuevaDesayunoMedTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvNuevaDesayunoTitle" />
+
+    <TextView
+        android:id="@+id/tvNuevaDesayunoMedTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/medicacion"
+        android:textColor="@color/hardblue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.171"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNuevaDesayunoTitle" />
+
+    <TextView
+        android:id="@+id/tvDesayunoRestricTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:text="@string/restricciones"
+        android:textColor="@color/hardblue"
+        app:layout_constraintStart_toStartOf="@+id/tvNuevaDesayunoMedTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvNuevaDesayunoMedTitle" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/frame_background"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDesayunoRestricTitle" />
+
+    <Button
+        android:id="@+id/btnARDesayuno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/anyadir"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.763"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etLimiteSupDesayuno" />
+
+    <EditText
+        android:id="@+id/etLimiteInfDesayuno"
+        android:layout_width="69dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/limInf"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+    <TextView
+        android:id="@+id/tvGuion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/guion"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/etLimiteInfDesayuno"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+    <EditText
+        android:id="@+id/etLimiteSupDesayuno"
+        android:layout_width="69dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/limSup"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tvGuion"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+    <EditText
+        android:id="@+id/etDosisDesayuno"
+        android:layout_width="55dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/dosis"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/etLimiteSupDesayuno"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+    <TextView
+        android:id="@+id/tvDesMgL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/mgl"
+        android:textColor="@color/hardblue"
+        app:layout_constraintBottom_toBottomOf="@+id/etLimiteSupDesayuno"
+        app:layout_constraintEnd_toStartOf="@+id/etDosisDesayuno"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/etLimiteSupDesayuno"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+    <TextView
+        android:id="@+id/tvU"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/U"
+        android:textSize="15sp"
+        android:textColor="@color/hardblue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/etDosisDesayuno"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toStartOf="@+id/etDosisDesayuno"
+        app:layout_constraintStart_toEndOf="@+id/tvDesMgL"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+        app:srcCompat="@drawable/baseline_keyboard_double_arrow_right_24" />
+
+        <TextView
+            android:id="@+id/tvNuevaComidaTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/turnoComida"
+            android:textColor="@color/hardblue"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnARDesayuno" />
+
+        <Spinner
+            android:id="@+id/spComida"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tvNuevaComidaMedTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvNuevaComidaTitle" />
+
+        <TextView
+            android:id="@+id/tvNuevaComidaMedTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/medicacion"
+            android:textColor="@color/hardblue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.171"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvNuevaComidaTitle" />
+
+        <TextView
+            android:id="@+id/tvComidaRestricTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="@string/restricciones"
+            android:textColor="@color/hardblue"
+            app:layout_constraintStart_toStartOf="@+id/tvNuevaComidaMedTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvNuevaComidaMedTitle" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewComida"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/frame_background"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvComidaRestricTitle" />
+
+        <Button
+            android:id="@+id/btnARComida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/anyadir"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.763"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etLimiteSupComida" />
+
+        <EditText
+            android:id="@+id/etLimiteInfComida"
+            android:layout_width="69dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="@string/limInf"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewComida" />
+
+        <TextView
+            android:id="@+id/tvGuionComida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/guion"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/etLimiteInfComida"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewComida" />
+
+        <EditText
+            android:id="@+id/etLimiteSupComida"
+            android:layout_width="69dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="@string/limSup"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tvGuionComida"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewComida" />
+
+        <EditText
+            android:id="@+id/etDosisComida"
+            android:layout_width="55dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="@string/dosis"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/etLimiteSupComida"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewComida" />
+
+        <TextView
+            android:id="@+id/tvDesMgLComida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/mgl"
+            android:textColor="@color/hardblue"
+            app:layout_constraintBottom_toBottomOf="@+id/etLimiteSupComida"
+            app:layout_constraintEnd_toStartOf="@+id/etDosisComida"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/etLimiteSupComida"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewComida" />
+
+        <TextView
+            android:id="@+id/tvUComida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/U"
+            android:textSize="15sp"
+            android:textColor="@color/hardblue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/etDosisComida"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewComida" />
+
+        <ImageView
+            android:id="@+id/imageViewComida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/etDosisComida"
+            app:layout_constraintStart_toEndOf="@+id/tvDesMgLComida"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewComida"
+            app:srcCompat="@drawable/baseline_keyboard_double_arrow_right_24" />
+
+        <TextView
+            android:id="@+id/tvNuevaCenaTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/turnoCena"
+            android:textColor="@color/hardblue"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnARComida" />
+
+        <Spinner
+            android:id="@+id/spCena"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tvNuevaCenaMedTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvNuevaCenaTitle" />
+
+        <TextView
+            android:id="@+id/tvNuevaCenaMedTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/medicacion"
+            android:textColor="@color/hardblue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.171"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvNuevaCenaTitle" />
+
+        <TextView
+            android:id="@+id/tvCenaRestricTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="@string/restricciones"
+            android:textColor="@color/hardblue"
+            app:layout_constraintStart_toStartOf="@+id/tvNuevaCenaMedTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvNuevaCenaMedTitle" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewCena"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/frame_background"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCenaRestricTitle" />
+
+        <Button
+            android:id="@+id/btnARCena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/anyadir"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.763"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etLimiteSupCena" />
+
+        <EditText
+            android:id="@+id/etLimiteInfCena"
+            android:layout_width="69dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="@string/limInf"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewCena" />
+
+        <TextView
+            android:id="@+id/tvGuionCena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/guion"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/etLimiteInfCena"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewCena" />
+
+        <EditText
+            android:id="@+id/etLimiteSupCena"
+            android:layout_width="69dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="@string/limSup"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tvGuionCena"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewCena" />
+
+        <EditText
+            android:id="@+id/etDosisCena"
+            android:layout_width="55dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="@string/dosis"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/etLimiteSupCena"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewCena" />
+
+        <TextView
+            android:id="@+id/tvDesMgLCena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/mgl"
+            android:textColor="@color/hardblue"
+            app:layout_constraintBottom_toBottomOf="@+id/etLimiteSupCena"
+            app:layout_constraintEnd_toStartOf="@+id/etDosisCena"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/etLimiteSupCena"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewCena" />
+
+        <TextView
+            android:id="@+id/tvUCena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/U"
+            android:textSize="15sp"
+            android:textColor="@color/hardblue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/etDosisCena"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewCena" />
+
+        <ImageView
+            android:id="@+id/imageViewCena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/etDosisCena"
+            app:layout_constraintStart_toEndOf="@+id/tvDesMgLCena"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewCena"
+            app:srcCompat="@drawable/baseline_keyboard_double_arrow_right_24" />
+
+        <TextView
+            android:id="@+id/tvNuevaResoponTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/turnoResopon"
+            android:textColor="@color/hardblue"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnARCena" />
+
+        <Spinner
+            android:id="@+id/spResopon"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tvNuevaResoponMedTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvNuevaResoponTitle" />
+
+        <TextView
+            android:id="@+id/tvNuevaResoponMedTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/medicacion"
+            android:textColor="@color/hardblue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.171"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvNuevaResoponTitle" />
+
+        <TextView
+            android:id="@+id/tvResoponRestricTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="@string/restricciones"
+            android:textColor="@color/hardblue"
+            app:layout_constraintStart_toStartOf="@+id/tvNuevaResoponMedTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvNuevaResoponMedTitle" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewResopon"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/frame_background"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvResoponRestricTitle" />
+
+        <Button
+            android:id="@+id/btnARResopon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/anyadir"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.763"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etLimiteSupResopon" />
+
+        <EditText
+            android:id="@+id/etLimiteInfResopon"
+            android:layout_width="69dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="@string/limInf"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewResopon" />
+
+        <TextView
+            android:id="@+id/tvGuionResopon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/guion"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/etLimiteInfResopon"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewResopon" />
+
+        <EditText
+            android:id="@+id/etLimiteSupResopon"
+            android:layout_width="69dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="@string/limSup"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tvGuionResopon"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewResopon" />
+
+        <EditText
+            android:id="@+id/etDosisResopon"
+            android:layout_width="55dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="@string/dosis"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/etLimiteSupResopon"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewResopon" />
+
+        <TextView
+            android:id="@+id/tvDesMgLResopon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/mgl"
+            android:textColor="@color/hardblue"
+            app:layout_constraintBottom_toBottomOf="@+id/etLimiteSupResopon"
+            app:layout_constraintEnd_toStartOf="@+id/etDosisCena"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/etLimiteSupResopon"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewResopon" />
+
+        <TextView
+            android:id="@+id/tvUResopon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/U"
+            android:textSize="15sp"
+            android:textColor="@color/hardblue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/etDosisResopon"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewResopon" />
+
+        <ImageView
+            android:id="@+id/imageViewResopon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/etDosisResopon"
+            app:layout_constraintStart_toEndOf="@+id/tvDesMgLResopon"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewResopon"
+            app:srcCompat="@drawable/baseline_keyboard_double_arrow_right_24" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/anyadirpauta"
+            app:layout_constraintTop_toBottomOf="@id/btnARResopon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="25dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

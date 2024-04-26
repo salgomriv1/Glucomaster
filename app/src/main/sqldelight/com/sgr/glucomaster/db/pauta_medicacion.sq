@@ -1,0 +1,18 @@
+-- Define table: pauta_medicamento
+CREATE TABLE Pauta_Medicamento (
+    pauta_id INTEGER,
+    medicamento_id INTEGER,
+    turno TEXT,
+    FOREIGN KEY (pauta_id) REFERENCES pauta(id),
+    FOREIGN KEY (medicamento_id) REFERENCES medicacion(id),
+    PRIMARY KEY (pauta_id, medicamento_id, turno)
+);
+
+
+
+
+
+
+
+
+
