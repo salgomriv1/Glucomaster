@@ -1,0 +1,7 @@
+-- Define table: medicacion
+CREATE TABLE IF NOT EXISTS medicacion (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL,
+    pauta_id INTEGER NOT NULL,
+    FOREIGN KEY (pauta_id) REFERENCES pauta(id)
+);

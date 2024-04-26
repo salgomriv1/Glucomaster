@@ -1,0 +1,10 @@
+-- Define table: restriccion
+CREATE TABLE IF NOT EXISTS restriccion (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    pauta_id INTEGER NOT NULL,
+    LimiteInferior INTEGER,
+    LimiteSuperior INTEGER,
+    turno TEXT NOT NULL,
+    dosis INTEGER,
+    FOREIGN KEY (pauta_id) REFERENCES pauta(id)
+);

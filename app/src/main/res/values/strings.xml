@@ -52,4 +52,7 @@
     <string name="mgl">mg/l</string>
     <string name="U">U</string>
     <string name="anyadirpauta">Añadir pauta</string>
+    <string name="Medicaciones">Medicaciones</string>
+    <string name="nombreMed">Nombre de la nueva medicación</string>
+    <string name="anyadirMed">Añadir medicación</string>
 </resources>

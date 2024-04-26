@@ -1,0 +1,7 @@
+-- Define table: pauta
+CREATE TABLE IF NOT EXISTS pauta (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fecha TEXT NOT NULL,
+    user_id INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES usuario(id)
+);

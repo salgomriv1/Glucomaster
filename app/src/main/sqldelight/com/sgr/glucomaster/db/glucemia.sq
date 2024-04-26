@@ -1,0 +1,9 @@
+-- Define table: glucemia
+CREATE TABLE IF NOT EXISTS glucemia (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fecha TEXT NOT NULL,
+    turno TEXT NOT NULL,
+    valor INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES usuario(id)
+);
