@@ -53,6 +53,18 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent (this, AddMedicationActivity::class.java)
             startActivity(intent)
         }
+
+        binding.btnTips.setOnClickListener {
+
+            val intent = Intent (this, TipsActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnDesayuno.setOnClickListener {
+
+            val intent = Intent (this, GlucemiaActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

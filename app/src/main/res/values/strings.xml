@@ -57,4 +57,10 @@
     <string name="anyadirMed">Añadir medicación</string>
     <string name="pautas">Pautas</string>
     <string name="turno">Turno</string>
+    <string name="consejos">Consejos</string>
+    <string name="consejo1">loreipsumklasdfjalkhsdfhaskdfjaskdlfjklajsdklfjlaksjdfjaslkjd\naksdflkjasdkfjlaksjdflajsdfllkasjdflkjasdlkfjaskljdflkjsdf\naklsjdfkljaslkjdfjaksljdflkjasdf</string>
+    <string name="glucemia">Glucemia</string>
+    <string name="introducirGluc">Valor</string>
+    <string name="calcularDosis">Calcular dosis</string>
+    <string name="dosis2">Dosis</string>
 </resources>
