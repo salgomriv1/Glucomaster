@@ -12,6 +12,9 @@ insertReg: INSERT INTO pauta (fecha, user_id) VALUES (?,?);
 -- Define a query to get all regimens
 getAllReg: SELECT * FROM pauta;
 
+-- Define a query to get all regimens by userID
+getAllRegByUserId: SELECT * FROM pauta WHERE user_id = ?;
+
 -- Define a query to get a regimen by id
 getRegById: SELECT * FROM pauta WHERE id = ?;
 
@@ -19,4 +22,4 @@ getRegById: SELECT * FROM pauta WHERE id = ?;
 deleteRegById: DELETE FROM pauta WHERE id = ?;
 
 -- Define a query to get a regimen by date
-getRegByDate: SELECT * FROM pauta WHERE fecha = ?;
+getRegByDate: SELECT * FROM pauta WHERE fecha = ? AND user_id = ?;

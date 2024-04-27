@@ -1,11 +1,13 @@
 package com.sgr.glucomaster
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -42,7 +44,6 @@ class AddRegimenActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         //Get user id
         val user= database.userQueries.getUser(auth.currentUser?.email).executeAsOneOrNull()?.id
-        val user_id = user?.toLong()
         //Setup spinner and update restrictions spinners
         setupSpinners()
         updatelist(R.id.recyclerViewDesayuno, "desayuno", 0)
@@ -58,8 +59,8 @@ class AddRegimenActivity : AppCompatActivity() {
             if (binding.etFecha.text.isNotEmpty()) {
 
                 //Add a reg in the db
-                if (user_id != null) {
-                    database.pautaQueries.insertReg(binding.etFecha.text.toString(),user_id)
+                if (user != null) {
+                    database.pautaQueries.insertReg(binding.etFecha.text.toString(),user)
                     Toast.makeText(baseContext, getString(R.string.fechaAnyadida), Toast.LENGTH_SHORT).show()
                 }
             } else {
@@ -77,8 +78,11 @@ class AddRegimenActivity : AppCompatActivity() {
                 && binding.etDosisDesayuno.text.isNotEmpty()) {
 
                 //Get the id of the regimen
-                val pauta_id = database.pautaQueries.getRegByDate(binding.etFecha.text.toString())
-                    .executeAsOne().id.toLong()
+                if (user != null) {
+                    val pauta_id =
+                        database.pautaQueries.getRegByDate(binding.etFecha.text.toString(), user)
+                            .executeAsOne().id.toLong()
+
                 //Insert the rest in the db
                 database.restriccionQueries.insertRest(pauta_id,
                     binding.etLimiteInfDesayuno.text.toString().toLong(),
@@ -86,6 +90,7 @@ class AddRegimenActivity : AppCompatActivity() {
                     binding.etDosisDesayuno.text.toString().toLong())
                 //Update the recyclerview
                 updatelist(R.id.recyclerViewDesayuno, "desayuno", pauta_id)
+                }
             } else {
 
                 Toast.makeText(baseContext, getString(R.string.resVacio), Toast.LENGTH_SHORT).show()
@@ -100,16 +105,21 @@ class AddRegimenActivity : AppCompatActivity() {
                 && binding.etLimiteSupComida.text.isNotEmpty()
                 && binding.etDosisComida.text.isNotEmpty()) {
 
-                //Get the id of the regimen
-                val pauta_id = database.pautaQueries.getRegByDate(binding.etFecha.text.toString())
-                    .executeAsOne().id.toLong()
-                //Insert the rest in the db
-                database.restriccionQueries.insertRest(pauta_id,
-                    binding.etLimiteInfComida.text.toString().toLong(),
-                    binding.etLimiteSupComida.text.toString().toLong(), "comida",
-                    binding.etDosisComida.text.toString().toLong())
-                //Update the recyclerview
-                updatelist(R.id.recyclerViewComida, "comida", pauta_id)
+                if (user != null) {
+                    //Get the id of the regimen
+                    val pauta_id =
+                        database.pautaQueries.getRegByDate(binding.etFecha.text.toString(), user)
+                            .executeAsOne().id.toLong()
+                    //Insert the rest in the db
+                    database.restriccionQueries.insertRest(
+                        pauta_id,
+                        binding.etLimiteInfComida.text.toString().toLong(),
+                        binding.etLimiteSupComida.text.toString().toLong(), "comida",
+                        binding.etDosisComida.text.toString().toLong()
+                    )
+                    //Update the recyclerview
+                    updatelist(R.id.recyclerViewComida, "comida", pauta_id)
+                }
             } else {
 
                 Toast.makeText(baseContext, getString(R.string.resVacio), Toast.LENGTH_SHORT).show()
@@ -124,16 +134,21 @@ class AddRegimenActivity : AppCompatActivity() {
                 && binding.etLimiteSupCena.text.isNotEmpty()
                 && binding.etDosisCena.text.isNotEmpty()) {
 
-                //Get the id of the regimen
-                val pauta_id = database.pautaQueries.getRegByDate(binding.etFecha.text.toString())
-                    .executeAsOne().id.toLong()
-                //Insert the rest in the db
-                database.restriccionQueries.insertRest(pauta_id,
-                    binding.etLimiteInfCena.text.toString().toLong(),
-                    binding.etLimiteSupCena.text.toString().toLong(), "cena",
-                    binding.etDosisCena.text.toString().toLong())
-                //Update the recyclerview
-                updatelist(R.id.recyclerViewCena, "cena", pauta_id)
+                if (user != null) {
+                    //Get the id of the regimen
+                    val pauta_id =
+                        database.pautaQueries.getRegByDate(binding.etFecha.text.toString(), user)
+                            .executeAsOne().id.toLong()
+                    //Insert the rest in the db
+                    database.restriccionQueries.insertRest(
+                        pauta_id,
+                        binding.etLimiteInfCena.text.toString().toLong(),
+                        binding.etLimiteSupCena.text.toString().toLong(), "cena",
+                        binding.etDosisCena.text.toString().toLong()
+                    )
+                    //Update the recyclerview
+                    updatelist(R.id.recyclerViewCena, "cena", pauta_id)
+                }
             } else {
 
                 Toast.makeText(baseContext, getString(R.string.resVacio), Toast.LENGTH_SHORT).show()
@@ -148,16 +163,21 @@ class AddRegimenActivity : AppCompatActivity() {
                 && binding.etLimiteSupResopon.text.isNotEmpty()
                 && binding.etDosisResopon.text.isNotEmpty()) {
 
-                //Get the id of the regimen
-                val pauta_id = database.pautaQueries.getRegByDate(binding.etFecha.text.toString())
-                    .executeAsOne().id.toLong()
-                //Insert the rest in the db
-                database.restriccionQueries.insertRest(pauta_id,
-                    binding.etLimiteInfResopon.text.toString().toLong(),
-                    binding.etLimiteSupResopon.text.toString().toLong(), "resopon",
-                    binding.etDosisResopon.text.toString().toLong())
-                //Update the recyclerview
-                updatelist(R.id.recyclerViewResopon, "resopon", pauta_id)
+                if (user != null) {
+                    //Get the id of the regimen
+                    val pauta_id =
+                        database.pautaQueries.getRegByDate(binding.etFecha.text.toString(), user)
+                            .executeAsOne().id.toLong()
+                    //Insert the rest in the db
+                    database.restriccionQueries.insertRest(
+                        pauta_id,
+                        binding.etLimiteInfResopon.text.toString().toLong(),
+                        binding.etLimiteSupResopon.text.toString().toLong(), "resopon",
+                        binding.etDosisResopon.text.toString().toLong()
+                    )
+                    //Update the recyclerview
+                    updatelist(R.id.recyclerViewResopon, "resopon", pauta_id)
+                }
             } else {
 
                 Toast.makeText(baseContext, getString(R.string.resVacio), Toast.LENGTH_SHORT).show()
@@ -189,19 +209,33 @@ class AddRegimenActivity : AppCompatActivity() {
                 val medResoponID =
                     database.medicacionQueries.getMedicationByName(medResopon).executeAsOne().id
 
-                //Get the id of the regimen from the db
-                val pauta_id = database.pautaQueries.getRegByDate(binding.etFecha.text.toString())
-                    .executeAsOne().id.toLong()
+                if ( user != null) {
+                    //Get the id of the regimen from the db
+                    val pauta_id =
+                        database.pautaQueries.getRegByDate(binding.etFecha.text.toString(), user)
+                            .executeAsOne().id.toLong()
 
-                //Add the relation between regimen and medication
-                database.pauta_medicacionQueries.insertPauMed(pauta_id, medDesayunoID, "desayuno")
-                database.pauta_medicacionQueries.insertPauMed(pauta_id, medComidaID, "comida")
-                database.pauta_medicacionQueries.insertPauMed(pauta_id, medCenaID, "cena")
-                database.pauta_medicacionQueries.insertPauMed(pauta_id, medResoponID, "resopon")
+                    //Add the relation between regimen and medication
+                    database.pauta_medicacionQueries.insertPauMed(
+                        pauta_id,
+                        medDesayunoID,
+                        "desayuno"
+                    )
+                    database.pauta_medicacionQueries.insertPauMed(pauta_id, medComidaID, "comida")
+                    database.pauta_medicacionQueries.insertPauMed(pauta_id, medCenaID, "cena")
+                    database.pauta_medicacionQueries.insertPauMed(pauta_id, medResoponID, "resopon")
 
-                finish()
-                Toast.makeText(baseContext, getString(R.string.pautaAnyadida), Toast.LENGTH_SHORT)
-                    .show()
+                    //Return the date of the regimen created
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("nueva_pauta", binding.etFecha.text.toString())
+                    setResult(RESULT_OK, intent)
+                    finish()
+                    Toast.makeText(
+                        baseContext,
+                        getString(R.string.pautaAnyadida),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             } else {
 
                 Toast.makeText(baseContext, getString(R.string.sinMed), Toast.LENGTH_SHORT).show()

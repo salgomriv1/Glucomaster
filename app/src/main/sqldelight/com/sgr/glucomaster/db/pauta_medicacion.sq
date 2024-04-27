@@ -11,6 +11,14 @@ CREATE TABLE Pauta_Medicacion (
 -- Define query to insert a new pauta_medicamento
 insertPauMed: INSERT INTO Pauta_Medicacion (pauta_id, medicamento_id, turno) VALUES (?, ?, ?);
 
+-- Define query to get meds for a regimen
+getMedbyReg:
+SELECT medicacion.*
+FROM medicacion
+JOIN Pauta_Medicacion
+ON Pauta_Medicacion.medicamento_id = medicacion.id
+WHERE Pauta_Medicacion.pauta_id = ?
+AND Pauta_Medicacion.turno = ?;
 
 
 
