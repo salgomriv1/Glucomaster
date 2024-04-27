@@ -1,4 +1,4 @@
--- Define table: pauta_medicamento
+-- Define table: pauta_medicacion
 CREATE TABLE Pauta_Medicacion (
     pauta_id INTEGER,
     medicamento_id INTEGER,
@@ -7,6 +7,10 @@ CREATE TABLE Pauta_Medicacion (
     FOREIGN KEY (medicamento_id) REFERENCES medicacion(id),
     PRIMARY KEY (pauta_id, medicamento_id, turno)
 );
+
+-- Define query to insert a new pauta_medicamento
+insertPauMed: INSERT INTO Pauta_Medicacion (pauta_id, medicamento_id, turno) VALUES (?, ?, ?);
+
 
 
 

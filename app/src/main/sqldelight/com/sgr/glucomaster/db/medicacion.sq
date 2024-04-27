@@ -15,3 +15,6 @@ getAllMed: SELECT * FROM medicacion;
 
 -- Define query to get a medication by id
 getMedicationById: SELECT * FROM medicacion WHERE id = ?;
+
+-- Define query to get medication by name
+getMedicationByName: SELECT * FROM medicacion WHERE nombre = ?;

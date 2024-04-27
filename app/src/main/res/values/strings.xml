@@ -66,4 +66,9 @@
     <string name="medNoVacio">El campo de nueva medicación no puede estar vacio</string>
     <string name="medAnyadida">Medicación añadida con exito</string>
     <string name="resVacio">Ningun campo de la restriccion puede estar vacio</string>
+    <string name="anyadirFecha">Añadir fecha</string>
+    <string name="fechaVacia">El campo fecha no puede estar vacio</string>
+    <string name="fechaAnyadida">Fecha añadida con éxito</string>
+    <string name="pautaAnyadida">Pauta añadida con éxito</string>
+    <string name="sinMed">Añada medicaciones antes de añadir la pauta</string>
 </resources>

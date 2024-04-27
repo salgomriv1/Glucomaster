@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
         //Check if the user is in the local db
-        val usuario: Usuario? = database.userQueries.obtainUser(auth.currentUser?.email).executeAsOneOrNull()
+        val usuario: Usuario? = database.userQueries.getUser(auth.currentUser?.email).executeAsOneOrNull()
 
         //If the user is not is the DB, insert it
         if (usuario == null) {

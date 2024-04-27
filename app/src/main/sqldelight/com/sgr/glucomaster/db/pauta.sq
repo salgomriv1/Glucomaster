@@ -5,3 +5,18 @@ CREATE TABLE IF NOT EXISTS pauta (
     user_id INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES usuario(id)
 );
+
+-- Define a query to insert a regimen
+insertReg: INSERT INTO pauta (fecha, user_id) VALUES (?,?);
+
+-- Define a query to get all regimens
+getAllReg: SELECT * FROM pauta;
+
+-- Define a query to get a regimen by id
+getRegById: SELECT * FROM pauta WHERE id = ?;
+
+-- Define a query to delete a regimen by id
+deleteRegById: DELETE FROM pauta WHERE id = ?;
+
+-- Define a query to get a regimen by date
+getRegByDate: SELECT * FROM pauta WHERE fecha = ?;

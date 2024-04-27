@@ -5,10 +5,10 @@ CREATE TABLE IF NOT EXISTS usuario (
 );
 
 -- Define query to obtain all users
-obtainUsers: SELECT * FROM usuario;
+getUsers: SELECT * FROM usuario;
 
 -- Define query to obtain user by email
-obtainUser: SELECT * FROM usuario WHERE email = ?;
+getUser: SELECT * FROM usuario WHERE email = ?;
 
 -- Define query to insert user
 insertUser: INSERT INTO usuario (email) VALUES (?);

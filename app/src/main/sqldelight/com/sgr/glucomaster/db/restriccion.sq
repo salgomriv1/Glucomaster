@@ -8,3 +8,18 @@ CREATE TABLE IF NOT EXISTS restriccion (
     dosis INTEGER,
     FOREIGN KEY (pauta_id) REFERENCES pauta(id)
 );
+
+-- Define query to get all rest
+getAllRest: SELECT * FROM restriccion;
+
+-- Define query to get a rest by id
+getRestById: SELECT * FROM restriccion WHERE id = ?;
+
+-- Define query to insert a rest
+insertRest: INSERT INTO restriccion (pauta_id, LimiteInferior, LimiteSuperior, turno, dosis) VALUES (?, ?, ?,?, ?);
+
+-- Define query to delete a rest
+deleteRestById: DELETE FROM restriccion WHERE id = ?;
+
+--Define query to get all rest by turn and pauta_id
+getAllRestByTurn: SELECT * FROM restriccion WHERE turno LIKE ? AND  pauta_id = ?;
