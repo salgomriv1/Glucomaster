@@ -1,6 +1,7 @@
 package com.sgr.glucomaster
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import app.cash.sqldelight.driver.android.AndroidSqliteDriver
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -17,7 +19,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.gson.Gson
 import com.sgr.glucomaster.databinding.ActivityLoginBinding
+import java.io.File
+import java.io.InputStreamReader
 
 class LoginActivity : AppCompatActivity() {
 
@@ -25,6 +30,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var binding: ActivityLoginBinding
+    private val database = Database(AndroidSqliteDriver(Database.Schema, this, "Database.db"))
     override fun onCreate(savedInstanceState: Bundle?) {
 
         //Using a splashScreen
@@ -44,6 +50,14 @@ class LoginActivity : AppCompatActivity() {
 
         Thread.sleep(1000)
         screenSplash.setKeepOnScreenCondition {false}
+
+        //Check if is there any med in db
+        val listMed = database.medicacionQueries.getAllMed().executeAsList()
+        //If not, insert from json
+        if (listMed.isEmpty()) {
+
+            cargarMedsJSON()
+        }
 
         //Variable init
         auth = FirebaseAuth.getInstance()
@@ -84,6 +98,32 @@ class LoginActivity : AppCompatActivity() {
 
             val intent = Intent (this, ResetPassActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    //Function to insert meds to db from a json
+    private fun cargarMedsJSON() {
+
+        val gson = Gson()
+        val datos = ArrayList<String>()
+        try {
+
+            //Get the json and read it
+            val inputStream = this.resources.openRawResource(R.raw.medications)
+            val bufferedReader = inputStream.bufferedReader()
+            val json = bufferedReader.use { it.readText() }
+            // Convert the JSON to an ArrayList<String>
+            val array: Array<String> = gson.fromJson(json, Array<String>::class.java)
+            datos.addAll(array)
+
+            for(item in datos){
+                //Insert in db
+                database.medicacionQueries.insertMedication(item)
+            }
+
+
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 

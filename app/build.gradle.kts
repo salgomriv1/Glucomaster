@@ -71,6 +71,9 @@ dependencies {
     //SQLDelight
     implementation("app.cash.sqldelight:android-driver:2.0.2")
     implementation("app.cash.sqldelight:coroutines-extensions-jvm:2.0.2")
+
+    //Gson
+    implementation("com.google.code.gson:gson:2.10.1")
 }
 
 sqldelight {

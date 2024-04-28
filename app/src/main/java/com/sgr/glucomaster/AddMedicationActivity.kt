@@ -19,7 +19,7 @@ class AddMedicationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddMedicationBinding
     private val database = Database(AndroidSqliteDriver(Database.Schema, this, "Database.db"))
     lateinit var mRecyclerView: RecyclerView
-    private val mAdapter : MAdapter = MAdapter()
+    private val sAdapter : SAdapter = SAdapter()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -58,8 +58,8 @@ class AddMedicationActivity : AppCompatActivity() {
         mRecyclerView = findViewById(Recycler) as RecyclerView
         mRecyclerView.setHasFixedSize(true)
         mRecyclerView.layoutManager = LinearLayoutManager(this)
-        mAdapter.MAdapter(list, this)
-        mRecyclerView.adapter = mAdapter
+        sAdapter.SAdapter(list, this)
+        mRecyclerView.adapter = sAdapter
 
     }
 
