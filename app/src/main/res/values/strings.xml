@@ -31,7 +31,7 @@
     <string name="desayuno">Desayuno</string>
     <string name="comida">Comida</string>
     <string name="cena">Cena</string>
-    <string name="resopon">Resopón</string>
+    <string name="resopon">Resopon</string>
     <string name="titleActual">Actual</string>
     <string name="date">Fecha</string>
     <string name="medicacion">Medicación</string>
@@ -65,10 +65,13 @@
     <string name="dosis2">Dosis</string>
     <string name="medNoVacio">El campo de nueva medicación no puede estar vacio</string>
     <string name="medAnyadida">Medicación añadida con exito</string>
-    <string name="resVacio">Ningun campo de la restriccion puede estar vacio</string>
+    <string name="resVacio">Ningún campo de la restriccion ni la fecha pueden estar vacios</string>
     <string name="anyadirFecha">Añadir fecha</string>
     <string name="fechaVacia">El campo fecha no puede estar vacio</string>
     <string name="fechaAnyadida">Fecha añadida con éxito</string>
     <string name="pautaAnyadida">Pauta añadida con éxito</string>
     <string name="sinMed">Añada medicaciones antes de añadir la pauta</string>
+    <string name="glucRegistrada">Glucemia guardada</string>
+    <string name="añadaPauta">No hay pautas, añada una pauta</string>
+    <string name="noMargen">Glucemia fuera de los margenes\nConsulte con su médico</string>
 </resources>

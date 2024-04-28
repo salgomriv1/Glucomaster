@@ -7,3 +7,6 @@ CREATE TABLE IF NOT EXISTS glucemia (
     user_id INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES usuario(id)
 );
+
+-- Define a query to insert a glucemia in db
+insertGluc: INSERT INTO glucemia (fecha, turno, valor, user_id) VALUES  (?, ?, ?, ?);

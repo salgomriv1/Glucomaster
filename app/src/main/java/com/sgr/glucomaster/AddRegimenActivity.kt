@@ -75,7 +75,8 @@ class AddRegimenActivity : AppCompatActivity() {
             //Check if rest fields are not empty
             if (binding.etLimiteInfDesayuno.text.isNotEmpty()
                 && binding.etLimiteSupDesayuno.text.isNotEmpty()
-                && binding.etDosisDesayuno.text.isNotEmpty()) {
+                && binding.etDosisDesayuno.text.isNotEmpty()
+                && binding.etFecha.text.isNotEmpty()) {
 
                 //Get the id of the regimen
                 if (user != null) {
@@ -93,7 +94,7 @@ class AddRegimenActivity : AppCompatActivity() {
                 }
             } else {
 
-                Toast.makeText(baseContext, getString(R.string.resVacio), Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, getString(R.string.resVacio), Toast.LENGTH_LONG).show()
             }
         }
 
@@ -103,7 +104,8 @@ class AddRegimenActivity : AppCompatActivity() {
             //Check if rest fields are not empty
             if (binding.etLimiteInfComida.text.isNotEmpty()
                 && binding.etLimiteSupComida.text.isNotEmpty()
-                && binding.etDosisComida.text.isNotEmpty()) {
+                && binding.etDosisComida.text.isNotEmpty()
+                && binding.etFecha.text.isNotEmpty()) {
 
                 if (user != null) {
                     //Get the id of the regimen
@@ -122,7 +124,7 @@ class AddRegimenActivity : AppCompatActivity() {
                 }
             } else {
 
-                Toast.makeText(baseContext, getString(R.string.resVacio), Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, getString(R.string.resVacio), Toast.LENGTH_LONG).show()
             }
         }
 
@@ -132,7 +134,8 @@ class AddRegimenActivity : AppCompatActivity() {
             //Check if rest fields are not empty
             if (binding.etLimiteInfCena.text.isNotEmpty()
                 && binding.etLimiteSupCena.text.isNotEmpty()
-                && binding.etDosisCena.text.isNotEmpty()) {
+                && binding.etDosisCena.text.isNotEmpty()
+                && binding.etFecha.text.isNotEmpty()) {
 
                 if (user != null) {
                     //Get the id of the regimen
@@ -151,7 +154,7 @@ class AddRegimenActivity : AppCompatActivity() {
                 }
             } else {
 
-                Toast.makeText(baseContext, getString(R.string.resVacio), Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, getString(R.string.resVacio), Toast.LENGTH_LONG).show()
             }
         }
 
@@ -161,7 +164,8 @@ class AddRegimenActivity : AppCompatActivity() {
             //Check if rest fields are not empty
             if (binding.etLimiteInfResopon.text.isNotEmpty()
                 && binding.etLimiteSupResopon.text.isNotEmpty()
-                && binding.etDosisResopon.text.isNotEmpty()) {
+                && binding.etDosisResopon.text.isNotEmpty()
+                && binding.etFecha.text.isNotEmpty()) {
 
                 if (user != null) {
                     //Get the id of the regimen
@@ -180,7 +184,7 @@ class AddRegimenActivity : AppCompatActivity() {
                 }
             } else {
 
-                Toast.makeText(baseContext, getString(R.string.resVacio), Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, getString(R.string.resVacio), Toast.LENGTH_LONG).show()
             }
         }
 

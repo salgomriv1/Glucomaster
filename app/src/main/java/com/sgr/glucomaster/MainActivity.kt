@@ -56,11 +56,22 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
         //Check if the user is in the local db
-        val usuario: Usuario? = database.userQueries.getUser(auth.currentUser?.email).executeAsOneOrNull()
+        var usuario: Usuario? = database.userQueries.getUser(auth.currentUser?.email).executeAsOneOrNull()
+        //Get userId
+        var userId = usuario?.id
+
 
         //If the user is not is the DB, insert it
         if (usuario == null) {
             database.userQueries.insertUser(auth.currentUser?.email)
+            usuario = database.userQueries.getUser(auth.currentUser?.email).executeAsOne()
+            userId = usuario.id
+        }
+
+        val pautas = database.pautaQueries.getAllRegByUserId(userId!!).executeAsList()
+        if (pautas.isEmpty()) {
+
+            binding.tvPautaActual.setText("--/--/----")
         }
 
         //Get last actual regimen date from the sharedPreferences
@@ -68,16 +79,29 @@ class MainActivity : AppCompatActivity() {
         val pauAc = sharedPreferences.getString("pauAc", "--/--/----")
         binding.tvPautaActual.setText(pauAc)
 
-        binding.tvPautaActual.setOnClickListener() {
-
-            val usuario: Usuario? = database.userQueries.getUser(auth.currentUser?.email).executeAsOne()
-            val userId = usuario?.id
-            val intent = Intent (this, CurrentRegimenActivity::class.java)
-            intent.putExtra("pauta_actual", binding.tvPautaActual.text.toString())
-            intent.putExtra("userid", userId)
-            startActivity(intent)
+        //Get regimen id
+        var pautaId: Long = 0
+        if (pauAc != null && userId != null && pautas.isNotEmpty()) {
+            pautaId = database.pautaQueries.getRegByDate(pauAc, userId).executeAsOne().id
         }
 
+
+
+        //Button to the actual regimen screen
+        binding.tvPautaActual.setOnClickListener() {
+
+            var pautaActual = binding.tvPautaActual.text.toString()
+
+            if (!pautaActual.equals("--/--/----")) {
+                val intent = Intent(this, CurrentRegimenActivity::class.java)
+                intent.putExtra("pauta_actual", binding.tvPautaActual.text.toString())
+                intent.putExtra("userid", userId)
+                startActivity(intent)
+            } else {
+
+                Toast.makeText(baseContext, getString(R.string.añadaPauta), Toast.LENGTH_SHORT).show()
+            }
+        }
 
 
         binding.btnAddPattern.setOnClickListener {
@@ -101,8 +125,66 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnDesayuno.setOnClickListener {
 
-            val intent = Intent (this, GlucemiaActivity::class.java)
-            startActivity(intent)
+            var pautaActual = binding.tvPautaActual.text.toString()
+
+            if (!pautaActual.equals("--/--/----")) {
+                val intent = Intent(this, GlucemiaActivity::class.java)
+                intent.putExtra("turno", getString(R.string.desayuno))
+                intent.putExtra("pautaId", pautaId)
+                intent.putExtra("userId", userId)
+                startActivity(intent)
+            } else {
+
+                Toast.makeText(baseContext, getString(R.string.añadaPauta), Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        binding.btnComida.setOnClickListener {
+
+            var pautaActual = binding.tvPautaActual.text.toString()
+
+            if (!pautaActual.equals("--/--/----")) {
+                val intent = Intent(this, GlucemiaActivity::class.java)
+                intent.putExtra("turno", getString(R.string.comida))
+                intent.putExtra("pautaId", pautaId)
+                intent.putExtra("userId", userId)
+                startActivity(intent)
+            } else {
+
+                Toast.makeText(baseContext, getString(R.string.añadaPauta), Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        binding.btnCena.setOnClickListener {
+
+            var pautaActual = binding.tvPautaActual.text.toString()
+
+            if (!pautaActual.equals("--/--/----")) {
+                val intent = Intent(this, GlucemiaActivity::class.java)
+                intent.putExtra("turno", getString(R.string.cena))
+                intent.putExtra("pautaId", pautaId)
+                intent.putExtra("userId", userId)
+                startActivity(intent)
+            } else {
+
+                Toast.makeText(baseContext, getString(R.string.añadaPauta), Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        binding.btnResopon.setOnClickListener {
+
+            var pautaActual = binding.tvPautaActual.text.toString()
+
+            if (!pautaActual.equals("--/--/----")) {
+                val intent = Intent(this, GlucemiaActivity::class.java)
+                intent.putExtra("turno", getString(R.string.resopon))
+                intent.putExtra("pautaId", pautaId)
+                intent.putExtra("userId", userId)
+                startActivity(intent)
+            } else {
+
+                Toast.makeText(baseContext, getString(R.string.añadaPauta), Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

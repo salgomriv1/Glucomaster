@@ -65,7 +65,7 @@ class CurrentRegimenActivity : AppCompatActivity() {
             setupRecyclerView(R.id.tMRecyclerR, buildRestList(marResopon))
         }
 
-
+        //Button to change regimen
         binding.btnCambiar.setOnClickListener {
 
             val intent = Intent (this, ChangeRegimenActivity::class.java)
