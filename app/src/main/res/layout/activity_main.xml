@@ -100,15 +100,15 @@
         android:id="@+id/imageView3"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnAddPattern"
-        app:layout_constraintEnd_toEndOf="@+id/btnAddPattern"
-        app:layout_constraintStart_toStartOf="@+id/btnAddPattern"
-        app:layout_constraintTop_toTopOf="@+id/btnAddPattern"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_add_regimen"
+        app:layout_constraintEnd_toEndOf="@+id/btn_add_regimen"
+        app:layout_constraintStart_toStartOf="@+id/btn_add_regimen"
+        app:layout_constraintTop_toTopOf="@+id/btn_add_regimen"
         app:layout_constraintVertical_bias="0.55"
         app:srcCompat="@drawable/baseline_add_24" />
 
     <Button
-        android:id="@+id/btnAddPattern"
+        android:id="@+id/btn_add_regimen"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
@@ -125,7 +125,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_button_with_border"
-        app:layout_constraintEnd_toStartOf="@+id/btnAddPattern"
+        app:layout_constraintEnd_toStartOf="@+id/btn_add_regimen"
         app:layout_constraintHorizontal_bias="0.594"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnResopon" />
@@ -149,7 +149,7 @@
         android:background="@drawable/rounded_button_with_border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.401"
-        app:layout_constraintStart_toEndOf="@+id/btnAddPattern"
+        app:layout_constraintStart_toEndOf="@+id/btn_add_regimen"
         app:layout_constraintTop_toBottomOf="@+id/btnResopon" />
 
     <ImageView

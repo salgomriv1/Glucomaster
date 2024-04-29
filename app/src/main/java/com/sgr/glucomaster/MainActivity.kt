@@ -69,22 +69,29 @@ class MainActivity : AppCompatActivity() {
         }
 
         val pautas = database.pautaQueries.getAllRegByUserId(userId!!).executeAsList()
+        var pautaId: Long = 0
         if (pautas.isEmpty()) {
 
             binding.tvPautaActual.setText("--/--/----")
+        } else {
+
+            //Get last actual regimen date from the sharedPreferences
+            sharedPreferences = getSharedPreferences("MyPrefs_$userMail", Context.MODE_PRIVATE)
+            val pauAc = sharedPreferences.getString("pauAc", "--/--/----")
+            binding.tvPautaActual.setText(pauAc)
+
+            //Get regimen id
+            if (pauAc != null && userId != null) {
+                pautaId = database.pautaQueries.getRegByDate(pauAc, userId).executeAsOne().id
+            }
         }
 
-        //Get last actual regimen date from the sharedPreferences
-        sharedPreferences = getSharedPreferences("MyPrefs_$userMail", Context.MODE_PRIVATE)
-        val pauAc = sharedPreferences.getString("pauAc", "--/--/----")
-        binding.tvPautaActual.setText(pauAc)
+        //Check if there is any intent from change regimen activity
+        val cambioPau = intent?.getStringExtra("cambioPauta")
+        if (cambioPau != null) {
 
-        //Get regimen id
-        var pautaId: Long = 0
-        if (pauAc != null && userId != null && pautas.isNotEmpty()) {
-            pautaId = database.pautaQueries.getRegByDate(pauAc, userId).executeAsOne().id
+            binding.tvPautaActual.setText(cambioPau)
         }
-
 
 
         //Button to the actual regimen screen
@@ -104,25 +111,29 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        binding.btnAddPattern.setOnClickListener {
+        //Button to add regimen screen
+        binding.btnAddRegimen.setOnClickListener {
 
             val intent = Intent (this, AddRegimenActivity::class.java)
             //Starts addRegimenActivity and waits for data to return
             addRegActivityLauncher.launch(intent)
         }
 
+        //Button to add med screen
         binding.btnAddMed.setOnClickListener {
 
             val intent = Intent (this, AddMedicationActivity::class.java)
             startActivity(intent)
         }
 
+        //Button to tips screen
         binding.btnTips.setOnClickListener {
 
             val intent = Intent (this, TipsActivity::class.java)
             startActivity(intent)
         }
 
+        //Button to glycemia screen, breakfast turn
         binding.btnDesayuno.setOnClickListener {
 
             var pautaActual = binding.tvPautaActual.text.toString()
@@ -139,6 +150,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        //Button to glycemia screen, lunch turn
         binding.btnComida.setOnClickListener {
 
             var pautaActual = binding.tvPautaActual.text.toString()
@@ -155,6 +167,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        //Button to glycemia screen, dinner turn
         binding.btnCena.setOnClickListener {
 
             var pautaActual = binding.tvPautaActual.text.toString()
@@ -171,6 +184,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        //Button to glycemia screen, resopon turn
         binding.btnResopon.setOnClickListener {
 
             var pautaActual = binding.tvPautaActual.text.toString()

@@ -74,4 +74,8 @@
     <string name="glucRegistrada">Glucemia guardada</string>
     <string name="añadaPauta">No hay pautas, añada una pauta</string>
     <string name="noMargen">Glucemia fuera de los margenes\nConsulte con su médico</string>
+    <string name="confirmarBorradoTitulo">Confirmar borrado</string>
+    <string name="confirmarBorrado">¿Estás seguro de querer borrar esta pauta?</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
 </resources>

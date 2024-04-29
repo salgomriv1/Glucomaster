@@ -12,6 +12,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:textColor="@color/hardblue"
+        android:clickable="true"
         android:textSize="18sp" />
 
     <ImageButton

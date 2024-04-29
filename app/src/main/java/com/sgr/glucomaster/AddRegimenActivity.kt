@@ -52,23 +52,6 @@ class AddRegimenActivity : AppCompatActivity() {
         updatelist(R.id.recyclerViewResopon, "resopon", 0)
 
 
-        //Button to add a date
-        binding.btnAddDate.setOnClickListener {
-
-            //Check date field is not empty
-            if (binding.etFecha.text.isNotEmpty()) {
-
-                //Add a reg in the db
-                if (user != null) {
-                    database.pautaQueries.insertReg(binding.etFecha.text.toString(),user)
-                    Toast.makeText(baseContext, getString(R.string.fechaAnyadida), Toast.LENGTH_SHORT).show()
-                }
-            } else {
-
-                Toast.makeText(baseContext, getString(R.string.fechaVacia), Toast.LENGTH_SHORT).show()
-            }
-        }
-
         //Button to add rest to breakfast
         binding.btnARDesayuno.setOnClickListener {
 
@@ -78,8 +61,9 @@ class AddRegimenActivity : AppCompatActivity() {
                 && binding.etDosisDesayuno.text.isNotEmpty()
                 && binding.etFecha.text.isNotEmpty()) {
 
-                //Get the id of the regimen
+                //Register regimen and get the id of the regimen
                 if (user != null) {
+                    database.pautaQueries.insertReg(binding.etFecha.text.toString(),user)
                     val pauta_id =
                         database.pautaQueries.getRegByDate(binding.etFecha.text.toString(), user)
                             .executeAsOne().id.toLong()

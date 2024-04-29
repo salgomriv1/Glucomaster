@@ -20,6 +20,12 @@ ON Pauta_Medicacion.medicamento_id = medicacion.id
 WHERE Pauta_Medicacion.pauta_id = ?
 AND Pauta_Medicacion.turno = ?;
 
+-- Define query to get all pauta_med by pauta_id
+getAllPauta_MedByPautaId: SELECT * FROM Pauta_Medicacion WHERE pauta_id = ?;
+
+-- Define query to delete pauta_med by id
+deleteById: DELETE FROM Pauta_Medicacion WHERE pauta_id = ?;
+
 
 
 

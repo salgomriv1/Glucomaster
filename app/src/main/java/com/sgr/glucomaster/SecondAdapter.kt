@@ -6,10 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-class SAdapter: RecyclerView.Adapter<SAdapter.ViewHolder>() {
+class SAdapter(private val onDelete: OnDeleteItemClickListener, private val onClick: OnItemClickedListener): RecyclerView.Adapter<SAdapter.ViewHolder>() {
 
     var data: MutableList<String> = ArrayList()
     lateinit var context: Context
@@ -21,7 +20,7 @@ class SAdapter: RecyclerView.Adapter<SAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         val layoutInflater = LayoutInflater.from(parent.context)
-        return ViewHolder(layoutInflater.inflate(R.layout.list_item_sel_del, parent, false))
+        return ViewHolder(layoutInflater.inflate(R.layout.list_item_sel_del, parent, false), onDelete, onClick, data)
     }
 
     override fun getItemCount(): Int {
@@ -34,21 +33,49 @@ class SAdapter: RecyclerView.Adapter<SAdapter.ViewHolder>() {
         val item = data.get(position)
         holder.bind(item, context)
 
-        holder.btnBorrar.setOnClickListener {
-
-            Toast.makeText(context, "No implementado", Toast.LENGTH_LONG).show()
-        }
     }
 
-    class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    class ViewHolder(
+        view: View,
+        onDelete: OnDeleteItemClickListener,
+        onClick: OnItemClickedListener,
+        data: MutableList<String>
+    ): RecyclerView.ViewHolder(view) {
+
         val dat = view.findViewById(R.id.tvList) as TextView
-        val textView: TextView = itemView.findViewById(R.id.tvList)
-        val btnBorrar: ImageButton = itemView.findViewById(R.id.btnBorrar)
+
+        private val btnBorrar: ImageButton = itemView.findViewById(R.id.btnBorrar)
+        private val btnCambiar: TextView = itemView.findViewById(R.id.tvList)
+
+        init {
+            btnBorrar.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onDelete.onDeleteItemClick(data.get(position))
+                }
+            }
+
+            btnCambiar.setOnClickListener {
+
+                onClick.onItemClicked(data.get(position))
+            }
+
+        }
 
         fun bind(data :String, context: Context) {
 
             dat.text = data
+
         }
+
+    }
+
+    interface OnDeleteItemClickListener {
+        fun onDeleteItemClick(item: String)
+    }
+
+    interface OnItemClickedListener {
+        fun onItemClicked(item: String)
     }
 
 }

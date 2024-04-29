@@ -21,5 +21,11 @@ insertRest: INSERT INTO restriccion (pauta_id, LimiteInferior, LimiteSuperior, t
 -- Define query to delete a rest
 deleteRestById: DELETE FROM restriccion WHERE id = ?;
 
---Define query to get all rest by turn and pauta_id
+-- Define query to delete rests by pauta_id
+deleteRestByRegId: DELETE FROM restriccion WHERE pauta_id = ?;
+
+-- Define query to get all rest by turn and pauta_id
 getAllRestByTurn: SELECT * FROM restriccion WHERE turno LIKE ? AND  pauta_id = ?;
+
+-- Define a query to get all rest by pauta_id
+getAllRestByReg_Id: SELECT * FROM restriccion WHERE pauta_id = ?;
