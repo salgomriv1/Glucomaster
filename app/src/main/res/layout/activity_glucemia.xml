@@ -54,6 +54,8 @@
         android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="@string/introducirGluc"
+        android:textColorHint="@color/blueHint"
+        android:textColor="@color/hardblue"
         android:inputType="number"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,6 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="@string/calcularDosis"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etGlucemia" />

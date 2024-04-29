@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Glucomaster</string>
     <string name="LoginTitle">Login</string>
-    <string name="contraseña">Contraseña</string>
+    <string name="contrasenya">Contraseña</string>
     <string name="email">Email</string>
     <string name="reestablecerpass"><u>¿Olvidó su contraseña?</u></string>
     <string name="iniciarsesion">Iniciar sesión</string>
@@ -78,4 +78,5 @@
     <string name="confirmarBorrado">¿Estás seguro de querer borrar esta pauta?</string>
     <string name="si">Si</string>
     <string name="no">No</string>
+    <string name="repetirContrasenya">Repetir contraseña</string>
 </resources>

@@ -73,6 +73,8 @@ class MainActivity : AppCompatActivity() {
         if (pautas.isEmpty()) {
 
             binding.tvPautaActual.setText("--/--/----")
+            sharedPreferences = getSharedPreferences("MyPrefs_$userMail", Context.MODE_PRIVATE)
+            val pauAc = sharedPreferences.getString("pauAc", "--/--/----")
         } else {
 
             //Get last actual regimen date from the sharedPreferences
@@ -139,6 +141,7 @@ class MainActivity : AppCompatActivity() {
             var pautaActual = binding.tvPautaActual.text.toString()
 
             if (!pautaActual.equals("--/--/----")) {
+                pautaId = database.pautaQueries.getRegByDate(pautaActual, userId).executeAsOne().id
                 val intent = Intent(this, GlucemiaActivity::class.java)
                 intent.putExtra("turno", getString(R.string.desayuno))
                 intent.putExtra("pautaId", pautaId)
@@ -156,6 +159,7 @@ class MainActivity : AppCompatActivity() {
             var pautaActual = binding.tvPautaActual.text.toString()
 
             if (!pautaActual.equals("--/--/----")) {
+                pautaId = database.pautaQueries.getRegByDate(pautaActual, userId).executeAsOne().id
                 val intent = Intent(this, GlucemiaActivity::class.java)
                 intent.putExtra("turno", getString(R.string.comida))
                 intent.putExtra("pautaId", pautaId)
@@ -173,6 +177,7 @@ class MainActivity : AppCompatActivity() {
             var pautaActual = binding.tvPautaActual.text.toString()
 
             if (!pautaActual.equals("--/--/----")) {
+                pautaId = database.pautaQueries.getRegByDate(pautaActual, userId).executeAsOne().id
                 val intent = Intent(this, GlucemiaActivity::class.java)
                 intent.putExtra("turno", getString(R.string.cena))
                 intent.putExtra("pautaId", pautaId)
@@ -190,6 +195,7 @@ class MainActivity : AppCompatActivity() {
             var pautaActual = binding.tvPautaActual.text.toString()
 
             if (!pautaActual.equals("--/--/----")) {
+                pautaId = database.pautaQueries.getRegByDate(pautaActual, userId).executeAsOne().id
                 val intent = Intent(this, GlucemiaActivity::class.java)
                 intent.putExtra("turno", getString(R.string.resopon))
                 intent.putExtra("pautaId", pautaId)
@@ -229,6 +235,6 @@ class MainActivity : AppCompatActivity() {
         super.onStop()
 
         val inputPauAc = binding.tvPautaActual.text.toString()
-        sharedPreferences.edit().putString("pauAc", inputPauAc).apply()
+        sharedPreferences.edit().putString("pauAc", inputPauAc).commit()
     }
 }

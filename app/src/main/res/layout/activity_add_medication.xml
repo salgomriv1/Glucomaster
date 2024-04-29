@@ -28,6 +28,8 @@
         android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="@string/nombreMed"
+        android:textColorHint="@color/blueHint"
+        android:textColor="@color/hardblue"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,6 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/anyadirMed"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etAddMed" />
