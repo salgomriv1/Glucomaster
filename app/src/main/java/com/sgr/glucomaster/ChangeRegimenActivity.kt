@@ -79,6 +79,7 @@ class ChangeRegimenActivity : AppCompatActivity(), SAdapter.OnDeleteItemClickLis
 
     }
 
+    //Function to show a confirmation dialog
     private fun showConfirmationDialog(item: String) {
 
         val builder = AlertDialog.Builder(this)
@@ -105,7 +106,7 @@ class ChangeRegimenActivity : AppCompatActivity(), SAdapter.OnDeleteItemClickLis
 
         builder.setNegativeButton(getString(R.string.no)) {
             dialog, which ->
-
+            //Does nothing
         }
 
         val dialog = builder.create()

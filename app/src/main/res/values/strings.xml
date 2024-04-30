@@ -1,9 +1,8 @@
 <resources>
     <string name="app_name">Glucomaster</string>
-    <string name="LoginTitle">Login</string>
+    <string name="LoginTitle" translatable="false">Login</string>
     <string name="contrasenya">Contraseña</string>
-    <string name="email">Email</string>
-    <string name="reestablecerpass"><u>¿Olvidó su contraseña?</u></string>
+    <string name="email" translatable="false">Email</string>
     <string name="iniciarsesion">Iniciar sesión</string>
     <string name="reg1">¿Aún no estas registrado?</string>
     <string name="reglink"><u>Registrate</u></string>
@@ -11,14 +10,13 @@
     <string name="loginEnBlanco">Ni el email ni la contraseña pueden estar vacios</string>
     <string name="authOK">" logueado"</string>
     <string name="errorLog">Error de mail o de contraseña</string>
-    <string name="default_web_client_id" />
+    <string name="default_web_client_id" translatable="false" />
     <string name="crearCuenta">Registro</string>
     <string name="nombre">Nombre de usuario</string>
     <string name="btncrearCuenta">Crear cuenta</string>
     <string name="camposvacios">Ninguno de los campos puede estar vacio</string>
     <string name="passmenor6">La contraseña no puede tener menos de 6 caracteres</string>
     <string name="passnocoinciden">Las contraseñas no coinciden</string>
-    <string name="cuentacreada">Cuenta creada con exito</string>
     <string name="correoenuso">Este correo ya esta en uso</string>
     <string name="ResetpassTitle">Reset contraseña</string>
     <string name="btnresetpass">Restablecer</string>
@@ -35,7 +33,7 @@
     <string name="titleActual">Actual</string>
     <string name="date">Fecha</string>
     <string name="medicacion">Medicación</string>
-    <string name="margenes">Margenes</string>
+    <string name="margenes">Márgenes</string>
     <string name="turnoDesayuno">Desayuno</string>
     <string name="turnoComida">Comida</string>
     <string name="turnoCena">Cena</string>
@@ -46,11 +44,10 @@
     <string name="restricciones">Márgenes</string>
     <string name="anyadir">Añadir margen</string>
     <string name="limInf">lim inf</string>
-    <string name="guion">-</string>
-    <string name="limSup">lim sup</string>
+    <string name="guion" translatable="false">-</string>
     <string name="dosis">dosis</string>
-    <string name="mgl">mg/l</string>
-    <string name="U">U</string>
+    <string name="mgl" translatable="false">mg/dl</string>
+    <string name="U" translatable="false">U</string>
     <string name="anyadirpauta">Añadir pauta</string>
     <string name="Medicaciones">Medicaciones</string>
     <string name="nombreMed">Nueva medicación</string>
@@ -58,13 +55,11 @@
     <string name="pautas">Pautas</string>
     <string name="turno">Turno</string>
     <string name="consejos">Consejos</string>
-    <string name="consejo1">loreipsumklasdfjalkhsdfhaskdfjaskdlfjklajsdklfjlaksjdfjaslkjd\naksdflkjasdkfjlaksjdflajsdfllkasjdflkjasdlkfjaskljdflkjsdf\naklsjdfkljaslkjdfjaksljdflkjasdf</string>
+    <string name="consejo1" translatable="false">loreipsumklasdfjalkhsdfhaskdfjaskdlfjklajsdklfjlaksjdfjaslkjd\naksdflkjasdkfjlaksjdflajsdfllkasjdflkjasdlkfjaskljdflkjsdf\naklsjdfkljaslkjdfjaksljdflkjasdf</string>
     <string name="glucemia">Glucemia</string>
     <string name="introducirGluc">Valor</string>
     <string name="calcularDosis">Calcular dosis</string>
     <string name="dosis2">Dosis</string>
-    <string name="medNoVacio">El campo de nueva medicación no puede estar vacio</string>
-    <string name="medAnyadida">Medicación añadida con exito</string>
     <string name="resVacio">Ningún campo de la restriccion ni la fecha pueden estar vacios</string>
     <string name="anyadirFecha">Añadir fecha</string>
     <string name="fechaVacia">El campo fecha no puede estar vacio</string>
@@ -73,11 +68,17 @@
     <string name="sinMed">Añada medicaciones antes de añadir la pauta</string>
     <string name="glucRegistrada">Glucemia guardada</string>
     <string name="añadaPauta">No hay pautas, añada una pauta</string>
-    <string name="noMargen">Glucemia fuera de los margenes\nConsulte con su médico</string>
+    <string name="noMargen">Glucemia fuera de los margenes Consulte con su médico</string>
     <string name="confirmarBorradoTitulo">Confirmar borrado</string>
     <string name="confirmarBorrado">¿Estás seguro de querer borrar esta pauta?</string>
     <string name="si">Si</string>
     <string name="no">No</string>
     <string name="repetirContrasenya">Repetir contraseña</string>
     <string name="sinMargenes">Sin márgenes</string>
+    <string name="reestablecerpass"><u>¿Olvidó su contraseña?</u></string>
+    <string name="cuentacreada">Cuenta creada con éxito</string>
+    <string name="medAnyadida">Medicación añadida</string>
+    <string name="limSup">lim sup</string>
+    <string name="medNoVacio">El campo de nueva medicación no puede estar vacio</string>
+    <string name="sinMedicaciones">Sin medicaciones</string>
 </resources>

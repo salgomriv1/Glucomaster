@@ -2,12 +2,9 @@ package com.sgr.glucomaster
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -15,10 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import app.cash.sqldelight.driver.android.AndroidSqliteDriver
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import com.sgr.glucomaster.databinding.ActivityAddRegimenBinding
 import com.sgr.glucomaster.db.Restriccion
+
 
 class AddRegimenActivity : AppCompatActivity() {
 
@@ -46,10 +42,10 @@ class AddRegimenActivity : AppCompatActivity() {
         val user= database.userQueries.getUser(auth.currentUser?.email).executeAsOneOrNull()?.id
         //Setup spinner and update restrictions spinners
         setupSpinners()
-        updatelist(R.id.recyclerViewDesayuno, "desayuno", 0)
-        updatelist(R.id.recyclerViewComida, "comida", 0)
-        updatelist(R.id.recyclerViewCena, "cena", 0)
-        updatelist(R.id.recyclerViewResopon, "resopon", 0)
+        updatelist(R.id.recyclerViewDesayuno, getString(R.string.desayuno).lowercase(), 0)
+        updatelist(R.id.recyclerViewComida, getString(R.string.comida).lowercase(), 0)
+        updatelist(R.id.recyclerViewCena, getString(R.string.cena).lowercase(), 0)
+        updatelist(R.id.recyclerViewResopon, getString(R.string.resopon).lowercase(), 0)
 
 
         //Button to add rest to breakfast
@@ -75,10 +71,10 @@ class AddRegimenActivity : AppCompatActivity() {
                 //Insert the rest in the db
                 database.restriccionQueries.insertRest(pauta_id,
                     binding.etLimiteInfDesayuno.text.toString().toLong(),
-                    binding.etLimiteSupDesayuno.text.toString().toLong(), "desayuno",
+                    binding.etLimiteSupDesayuno.text.toString().toLong(), getString(R.string.desayuno).lowercase(),
                     binding.etDosisDesayuno.text.toString().toLong())
                 //Update the recyclerview
-                updatelist(R.id.recyclerViewDesayuno, "desayuno", pauta_id)
+                updatelist(R.id.recyclerViewDesayuno, getString(R.string.desayuno).lowercase(), pauta_id)
                     binding.etLimiteInfDesayuno.setText("")
                     binding.etLimiteSupDesayuno.setText("")
                     binding.etDosisDesayuno.setText("")
@@ -112,11 +108,11 @@ class AddRegimenActivity : AppCompatActivity() {
                     database.restriccionQueries.insertRest(
                         pauta_id,
                         binding.etLimiteInfComida.text.toString().toLong(),
-                        binding.etLimiteSupComida.text.toString().toLong(), "comida",
+                        binding.etLimiteSupComida.text.toString().toLong(), getString(R.string.comida).lowercase(),
                         binding.etDosisComida.text.toString().toLong()
                     )
                     //Update the recyclerview
-                    updatelist(R.id.recyclerViewComida, "comida", pauta_id)
+                    updatelist(R.id.recyclerViewComida, getString(R.string.comida).lowercase(), pauta_id)
                     binding.etLimiteInfComida.setText("")
                     binding.etLimiteSupComida.setText("")
                     binding.etDosisComida.setText("")
@@ -150,11 +146,11 @@ class AddRegimenActivity : AppCompatActivity() {
                     database.restriccionQueries.insertRest(
                         pauta_id,
                         binding.etLimiteInfCena.text.toString().toLong(),
-                        binding.etLimiteSupCena.text.toString().toLong(), "cena",
+                        binding.etLimiteSupCena.text.toString().toLong(), getString(R.string.cena).lowercase(),
                         binding.etDosisCena.text.toString().toLong()
                     )
                     //Update the recyclerview
-                    updatelist(R.id.recyclerViewCena, "cena", pauta_id)
+                    updatelist(R.id.recyclerViewCena, getString(R.string.cena).lowercase(), pauta_id)
                     binding.etLimiteInfCena.setText("")
                     binding.etLimiteSupCena.setText("")
                     binding.etDosisCena.setText("")
@@ -188,11 +184,11 @@ class AddRegimenActivity : AppCompatActivity() {
                     database.restriccionQueries.insertRest(
                         pauta_id,
                         binding.etLimiteInfResopon.text.toString().toLong(),
-                        binding.etLimiteSupResopon.text.toString().toLong(), "resopon",
+                        binding.etLimiteSupResopon.text.toString().toLong(), getString(R.string.resopon).lowercase(),
                         binding.etDosisResopon.text.toString().toLong()
                     )
                     //Update the recyclerview
-                    updatelist(R.id.recyclerViewResopon, "resopon", pauta_id)
+                    updatelist(R.id.recyclerViewResopon, getString(R.string.resopon).lowercase(), pauta_id)
                     binding.etLimiteInfResopon.setText("")
                     binding.etLimiteSupResopon.setText("")
                     binding.etDosisResopon.setText("")
@@ -238,11 +234,11 @@ class AddRegimenActivity : AppCompatActivity() {
                     database.pauta_medicacionQueries.insertPauMed(
                         pauta_id,
                         medDesayunoID,
-                        "desayuno"
+                        getString(R.string.desayuno).lowercase()
                     )
-                    database.pauta_medicacionQueries.insertPauMed(pauta_id, medComidaID, "comida")
-                    database.pauta_medicacionQueries.insertPauMed(pauta_id, medCenaID, "cena")
-                    database.pauta_medicacionQueries.insertPauMed(pauta_id, medResoponID, "resopon")
+                    database.pauta_medicacionQueries.insertPauMed(pauta_id, medComidaID, getString(R.string.comida).lowercase())
+                    database.pauta_medicacionQueries.insertPauMed(pauta_id, medCenaID, getString(R.string.cena).lowercase())
+                    database.pauta_medicacionQueries.insertPauMed(pauta_id, medResoponID, getString(R.string.resopon).lowercase())
 
                     //Return the date of the regimen created
                     val intent = Intent(this, MainActivity::class.java)
@@ -294,7 +290,7 @@ class AddRegimenActivity : AppCompatActivity() {
             }
         } else {
 
-            medicaciones.add("Sin medicaciones")
+            medicaciones.add(getString(R.string.sinMedicaciones))
         }
 
         //Create an adapter and a spinner layout

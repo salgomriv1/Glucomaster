@@ -31,12 +31,12 @@ class ResetPassActivity : AppCompatActivity() {
         binding.btnResetPass.setOnClickListener {
 
             val email = binding.etMailReset.text.toString()
-            restablecerContraseña(email)
+            resetPass(email)
         }
     }
 
     //Function to reset pass
-    private fun restablecerContraseña(email: String) {
+    private fun resetPass(email: String) {
 
         if (email.isNotEmpty()) {
 

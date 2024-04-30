@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     private val database = Database(AndroidSqliteDriver(Database.Schema, this, "Database.db"))
     private lateinit var sharedPreferences: SharedPreferences
 
-    //Recieves the date of the created regimen an sets as actual
+    //Recieves the date of the created regimen from add regimen and sets as actual
     private val addRegActivityLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
 
         resultado ->
@@ -50,8 +50,8 @@ class MainActivity : AppCompatActivity() {
         //Get actual logged user
         val user = auth.currentUser
         val userMail = user?.email
-        val toolbar = binding.toolbar
 
+        val toolbar = binding.toolbar
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
@@ -68,6 +68,7 @@ class MainActivity : AppCompatActivity() {
             userId = usuario.id
         }
 
+        //Get regimen list by userid
         val pautas = database.pautaQueries.getAllRegByUserId(userId!!).executeAsList()
         var pautaId: Long = 0
         if (pautas.isEmpty()) {

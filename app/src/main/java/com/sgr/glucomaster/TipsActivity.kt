@@ -27,8 +27,6 @@ class TipsActivity : AppCompatActivity() {
             insets
         }
 
-        val prueba = getString(R.string.consejo1)
-
         val tips: MutableList<String> = mutableListOf(getString(R.string.consejo1),
             getString(R.string.consejo1),
             getString(R.string.consejo1))

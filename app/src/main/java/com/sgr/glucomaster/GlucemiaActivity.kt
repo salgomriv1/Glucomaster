@@ -41,18 +41,23 @@ class GlucemiaActivity : AppCompatActivity() {
         binding.tvGlucemiaTurn.setText(turno)
         binding.tvGlucMed.setText(medicacion)
 
+        //Get restrictions by regimen id and turn
         val listaRest = turno?.let { database.restriccionQueries.getAllRestByTurn(it, pautaId).executeAsList() }
 
         binding.btnCalculateDose.setOnClickListener {
 
+            //Get glycemia
             val glucemia = binding.etGlucemia.text.toString().toLong()
+            //Calculate dose
             val dosis = calculateDose(listaRest, glucemia)
+            //Get actual date
             val fechaActual = LocalDate.now()
-
             val formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy")
             val fechaFormateada = fechaActual.format(formateador)
 
+            //Register glycemia in db
             database.glucemiaQueries.insertGluc(fechaFormateada,turno!!.lowercase(), glucemia, userId)
+            //Show dose
             if (dosis.toInt() != 0) {
                 binding.tvGlucDos.setText(dosis.toString() + "U")
                 Toast.makeText(baseContext, getString(R.string.glucRegistrada), Toast.LENGTH_SHORT)
@@ -61,6 +66,7 @@ class GlucemiaActivity : AppCompatActivity() {
         }
     }
 
+    //Function to calculate dose according to restrictions
     private fun calculateDose(listaRest: List<Restriccion>?, glucemia: Long): Long {
 
         var dosis: Long = 0

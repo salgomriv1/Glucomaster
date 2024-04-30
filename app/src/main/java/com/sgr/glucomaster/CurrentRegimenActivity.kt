@@ -43,20 +43,20 @@ class CurrentRegimenActivity : AppCompatActivity() {
             binding.tvTitleFechaData.setText(pautaActualFecha)
 
             //Meds are obtained from db and shown
-            val medDesayuno = database.pauta_medicacionQueries.getMedbyReg(pautaActualId,"desayuno").executeAsOne()
+            val medDesayuno = database.pauta_medicacionQueries.getMedbyReg(pautaActualId,getString(R.string.desayuno).lowercase()).executeAsOne()
             binding.tvMedicacion.setText(medDesayuno.nombre)
-            val medComida = database.pauta_medicacionQueries.getMedbyReg(pautaActualId,"comida").executeAsOne()
+            val medComida = database.pauta_medicacionQueries.getMedbyReg(pautaActualId,getString(R.string.comida).lowercase()).executeAsOne()
             binding.tvMedicacionT.setText(medComida.nombre)
-            val medCena = database.pauta_medicacionQueries.getMedbyReg(pautaActualId,"cena").executeAsOne()
+            val medCena = database.pauta_medicacionQueries.getMedbyReg(pautaActualId,getString(R.string.cena).lowercase()).executeAsOne()
             binding.tvMedicacionC.setText(medCena.nombre)
-            val medResopon = database.pauta_medicacionQueries.getMedbyReg(pautaActualId,"resopon").executeAsOne()
+            val medResopon = database.pauta_medicacionQueries.getMedbyReg(pautaActualId,getString(R.string.resopon).lowercase()).executeAsOne()
             binding.tvMedicacionR.setText(medResopon.nombre)
 
             //Restrictions are obtained from db
-            val marDesayuno = database.restriccionQueries.getAllRestByTurn("desayuno",pautaActualId).executeAsList()
-            val marComida = database.restriccionQueries.getAllRestByTurn("comida",pautaActualId).executeAsList()
-            val marCena = database.restriccionQueries.getAllRestByTurn("cena",pautaActualId).executeAsList()
-            val marResopon = database.restriccionQueries.getAllRestByTurn("resopon",pautaActualId).executeAsList()
+            val marDesayuno = database.restriccionQueries.getAllRestByTurn(getString(R.string.desayuno).lowercase(),pautaActualId).executeAsList()
+            val marComida = database.restriccionQueries.getAllRestByTurn(getString(R.string.comida).lowercase(),pautaActualId).executeAsList()
+            val marCena = database.restriccionQueries.getAllRestByTurn(getString(R.string.cena).lowercase(),pautaActualId).executeAsList()
+            val marResopon = database.restriccionQueries.getAllRestByTurn(getString(R.string.resopon).lowercase(),pautaActualId).executeAsList()
 
             //Setup all recyclerviews
             setupRecyclerView(R.id.tMRecycler, buildRestList(marDesayuno))

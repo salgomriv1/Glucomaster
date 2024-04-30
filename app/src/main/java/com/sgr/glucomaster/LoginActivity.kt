@@ -1,7 +1,6 @@
 package com.sgr.glucomaster
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -21,8 +20,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.gson.Gson
 import com.sgr.glucomaster.databinding.ActivityLoginBinding
-import java.io.File
-import java.io.InputStreamReader
 
 class LoginActivity : AppCompatActivity() {
 
@@ -56,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
         //If not, insert from json
         if (listMed.isEmpty()) {
 
-            cargarMedsJSON()
+            loadMedsFromJSON()
         }
 
         //Variable init
@@ -76,10 +73,12 @@ class LoginActivity : AppCompatActivity() {
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
+        //Sign in with google
         binding.btnGLogin.setOnClickListener {
             signInGoogle()
         }
 
+        //Sign in with email and password
         binding.btnIniciarSesion.setOnClickListener {
             if (binding.etLoginMail.text.isNotEmpty() && binding.etLoginPass.text.isNotEmpty()) {
                 signIn(binding.etLoginMail.text.toString(), binding.etLoginPass.text.toString())
@@ -88,12 +87,14 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+        //Link to register new user activity
         binding.tvRegLink.setOnClickListener{
 
             val intent = Intent (this, RegisterActivity::class.java)
             startActivity(intent)
         }
 
+        //Link to reset password activity
         binding.tvReestablecerPass.setOnClickListener() {
 
             val intent = Intent (this, ResetPassActivity::class.java)
@@ -102,7 +103,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     //Function to insert meds to db from a json
-    private fun cargarMedsJSON() {
+    private fun loadMedsFromJSON() {
 
         val gson = Gson()
         val datos = ArrayList<String>()
