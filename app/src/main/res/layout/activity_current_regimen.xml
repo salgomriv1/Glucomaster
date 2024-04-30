@@ -65,7 +65,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/marcoDesayuno"
-            android:layout_width="273dp"
+            android:layout_width="325dp"
             android:layout_height="wrap_content"
             android:background="@drawable/frame_background"
             app:layout_constraintEnd_toEndOf="parent"
@@ -139,7 +139,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/marcoComida"
-            android:layout_width="273dp"
+            android:layout_width="325dp"
             android:layout_height="wrap_content"
             android:background="@drawable/frame_background"
             app:layout_constraintEnd_toEndOf="parent"
@@ -214,7 +214,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/marcoCena"
-            android:layout_width="273dp"
+            android:layout_width="325dp"
             android:layout_height="wrap_content"
             android:background="@drawable/frame_background"
             app:layout_constraintEnd_toEndOf="parent"
@@ -288,7 +288,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/marcoR"
-            android:layout_width="273dp"
+            android:layout_width="325dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:background="@drawable/frame_background"

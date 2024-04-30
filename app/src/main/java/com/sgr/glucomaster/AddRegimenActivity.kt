@@ -63,7 +63,11 @@ class AddRegimenActivity : AppCompatActivity() {
 
                 //Register regimen and get the id of the regimen
                 if (user != null) {
-                    database.pautaQueries.insertReg(binding.etFecha.text.toString(),user)
+                    //Check if regimen is registered
+                    val compPauta = database.pautaQueries.getRegByDate(binding.etFecha.text.toString(),user).executeAsOneOrNull()
+                    if (compPauta == null) {
+                        database.pautaQueries.insertReg(binding.etFecha.text.toString(), user)
+                    }
                     val pauta_id =
                         database.pautaQueries.getRegByDate(binding.etFecha.text.toString(), user)
                             .executeAsOne().id.toLong()
@@ -75,6 +79,9 @@ class AddRegimenActivity : AppCompatActivity() {
                     binding.etDosisDesayuno.text.toString().toLong())
                 //Update the recyclerview
                 updatelist(R.id.recyclerViewDesayuno, "desayuno", pauta_id)
+                    binding.etLimiteInfDesayuno.setText("")
+                    binding.etLimiteSupDesayuno.setText("")
+                    binding.etDosisDesayuno.setText("")
                 }
             } else {
 
@@ -92,6 +99,11 @@ class AddRegimenActivity : AppCompatActivity() {
                 && binding.etFecha.text.isNotEmpty()) {
 
                 if (user != null) {
+                    //Check if regimen is registered
+                    val compPauta = database.pautaQueries.getRegByDate(binding.etFecha.text.toString(),user).executeAsOneOrNull()
+                    if (compPauta == null) {
+                        database.pautaQueries.insertReg(binding.etFecha.text.toString(), user)
+                    }
                     //Get the id of the regimen
                     val pauta_id =
                         database.pautaQueries.getRegByDate(binding.etFecha.text.toString(), user)
@@ -105,6 +117,9 @@ class AddRegimenActivity : AppCompatActivity() {
                     )
                     //Update the recyclerview
                     updatelist(R.id.recyclerViewComida, "comida", pauta_id)
+                    binding.etLimiteInfComida.setText("")
+                    binding.etLimiteSupComida.setText("")
+                    binding.etDosisComida.setText("")
                 }
             } else {
 
@@ -122,6 +137,11 @@ class AddRegimenActivity : AppCompatActivity() {
                 && binding.etFecha.text.isNotEmpty()) {
 
                 if (user != null) {
+                    //Check if regimen is registered
+                    val compPauta = database.pautaQueries.getRegByDate(binding.etFecha.text.toString(),user).executeAsOneOrNull()
+                    if (compPauta == null) {
+                        database.pautaQueries.insertReg(binding.etFecha.text.toString(), user)
+                    }
                     //Get the id of the regimen
                     val pauta_id =
                         database.pautaQueries.getRegByDate(binding.etFecha.text.toString(), user)
@@ -135,6 +155,9 @@ class AddRegimenActivity : AppCompatActivity() {
                     )
                     //Update the recyclerview
                     updatelist(R.id.recyclerViewCena, "cena", pauta_id)
+                    binding.etLimiteInfCena.setText("")
+                    binding.etLimiteSupCena.setText("")
+                    binding.etDosisCena.setText("")
                 }
             } else {
 
@@ -152,6 +175,11 @@ class AddRegimenActivity : AppCompatActivity() {
                 && binding.etFecha.text.isNotEmpty()) {
 
                 if (user != null) {
+                    //Check if regimen is registered
+                    val compPauta = database.pautaQueries.getRegByDate(binding.etFecha.text.toString(),user).executeAsOneOrNull()
+                    if (compPauta == null) {
+                        database.pautaQueries.insertReg(binding.etFecha.text.toString(), user)
+                    }
                     //Get the id of the regimen
                     val pauta_id =
                         database.pautaQueries.getRegByDate(binding.etFecha.text.toString(), user)
@@ -165,6 +193,9 @@ class AddRegimenActivity : AppCompatActivity() {
                     )
                     //Update the recyclerview
                     updatelist(R.id.recyclerViewResopon, "resopon", pauta_id)
+                    binding.etLimiteInfResopon.setText("")
+                    binding.etLimiteSupResopon.setText("")
+                    binding.etDosisResopon.setText("")
                 }
             } else {
 
@@ -267,10 +298,10 @@ class AddRegimenActivity : AppCompatActivity() {
         }
 
         //Create an adapter and a spinner layout
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, medicaciones)
+        val adapter = ArrayAdapter(this, R.layout.my_selected_item, medicaciones)
 
         //Specify the layout
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        adapter.setDropDownViewResource(R.layout.my_dropdown_item)
 
         //Asign the adapter to the spinners
         spinnerDes.adapter = adapter
@@ -288,7 +319,7 @@ class AddRegimenActivity : AppCompatActivity() {
         //Check if the list is empty
         if (margenes.isEmpty()) {
 
-            val listaVacia: MutableList<String> = mutableListOf("Sin margenes")
+            val listaVacia: MutableList<String> = mutableListOf(getString(R.string.sinMargenes))
             setupRecyclerView(rv, listaVacia)
         } else {
 
@@ -298,7 +329,7 @@ class AddRegimenActivity : AppCompatActivity() {
 
                 //Create the string for the recyclerview
                 val margen: String = item.LimiteInferior.toString() + " - " +
-                        item.LimiteSuperior.toString() + "mg/l   Dosis: " + item.dosis
+                        item.LimiteSuperior.toString() + "mg/l   ${getString(R.string.dosis)}: " + item.dosis + "U"
                 //Add it to the list we will pass to the recyclerview
                 listaFinal.add(margen)
             }

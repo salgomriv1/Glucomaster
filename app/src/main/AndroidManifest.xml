@@ -31,7 +31,8 @@
         <activity
             android:name=".AddRegimenActivity"
             android:exported="false"
-            android:screenOrientation="locked" />
+            android:screenOrientation="locked"
+            />
         <activity
             android:name=".CurrentRegimenActivity"
             android:exported="false"
