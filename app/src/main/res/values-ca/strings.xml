@@ -27,14 +27,14 @@
     <string name="cierresesion">Sessió tancada correctament</string>
     <string name="tituloPautaActual">PAUTA ACTUAL</string>
     <string name="desayuno">Esmorzar</string>
-    <string name="comida">Menjar</string>
+    <string name="comida">Dinar</string>
     <string name="cena">Sopar</string>
     <string name="titleActual">Actual</string>
     <string name="date">Data</string>
     <string name="medicacion">Medicació</string>
     <string name="margenes">Marges</string>
     <string name="turnoDesayuno">Esmorzar</string>
-    <string name="turnoComida">Menjar</string>
+    <string name="turnoComida">Dinar</string>
     <string name="turnoCena">Sopar</string>
     <string name="cambiar">Canviar</string>
     <string name="nuevaPauta">Nova pauta</string>
@@ -72,7 +72,7 @@
     <string name="no">No</string>
     <string name="repetirContrasenya">Repetir contrasenya</string>
     <string name="sinMargenes">Sense marges</string>
-    <string name="resopon">Resop</string>
-    <string name="turnoResopon">Resop</string>
+    <string name="resopon">Ressopo</string>
+    <string name="turnoResopon">Ressopo</string>
     <string name="sinMedicaciones">Sense medicacions</string>
 </resources>
