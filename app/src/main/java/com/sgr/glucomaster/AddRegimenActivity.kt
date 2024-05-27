@@ -212,7 +212,8 @@ class AddRegimenActivity : AppCompatActivity() {
             if (!medDesayuno.equals("Sin medicaciones")
                 && !medComida.equals("Sin medicaciones")
                 && !medCena.equals("Sin medicaciones")
-                && !medResopon.equals("Sin medicaciones")) {
+                && !medResopon.equals("Sin medicaciones")
+                && binding.etFecha.text.isNotEmpty()) {
 
                 //Get the id of the med from the db
                 val medDesayunoID =

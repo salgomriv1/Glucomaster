@@ -62,7 +62,7 @@
     <string name="fechaVacia">The date field cannot be empty</string>
     <string name="fechaAnyadida">Added date</string>
     <string name="pautaAnyadida">Added reg</string>
-    <string name="sinMed">Add medications before adding reg</string>
+    <string name="sinMed">Add medications and date before adding reg</string>
     <string name="glucRegistrada">Glycemia saved</string>
     <string name="añadaPauta">No regs, add a reg</string>
     <string name="noMargen">Glycemia out of range. Consult your doctor</string>
@@ -75,4 +75,5 @@
     <string name="resopon">Resopon</string>
     <string name="turnoResopon">Resopon</string>
     <string name="sinMedicaciones">No medications</string>
+    <string name="valorVacio">A blood glucose value must be indicated</string>
 </resources>

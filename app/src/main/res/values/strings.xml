@@ -65,7 +65,7 @@
     <string name="fechaVacia">El campo fecha no puede estar vacio</string>
     <string name="fechaAnyadida">Fecha añadida con éxito</string>
     <string name="pautaAnyadida">Pauta añadida con éxito</string>
-    <string name="sinMed">Añada medicaciones antes de añadir la pauta</string>
+    <string name="sinMed">Añada medicaciones y la fecha antes de añadir la pauta</string>
     <string name="glucRegistrada">Glucemia guardada</string>
     <string name="añadaPauta">No hay pautas, añada una pauta</string>
     <string name="noMargen">Glucemia fuera de los margenes Consulte con su médico</string>
@@ -81,4 +81,5 @@
     <string name="limSup">lim sup</string>
     <string name="medNoVacio">El campo de nueva medicación no puede estar vacio</string>
     <string name="sinMedicaciones">Sin medicaciones</string>
+    <string name="valorVacio">Debe indicarse un valor de glucemia</string>
 </resources>

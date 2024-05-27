@@ -62,7 +62,7 @@
     <string name="fechaVacia">El camp data no pot estar buit</string>
     <string name="fechaAnyadida">Data afegida amb èxit</string>
     <string name="pautaAnyadida">Pauta afegida amb èxit</string>
-    <string name="sinMed">Afegiu medicacions abans d\'afegir la pauta</string>
+    <string name="sinMed">Afegiu medicacions i la data abans d\'afegir la pauta</string>
     <string name="glucRegistrada">Glucèmia guardada</string>
     <string name="añadaPauta">No hi ha pautes, afegiu una pauta</string>
     <string name="noMargen">Glucèmia fora dels marges Consulteu amb el vostre metge</string>
@@ -75,4 +75,5 @@
     <string name="resopon">Ressopo</string>
     <string name="turnoResopon">Ressopo</string>
     <string name="sinMedicaciones">Sense medicacions</string>
+    <string name="valorVacio">Cal indicar un valor de glucèmia</string>
 </resources>
