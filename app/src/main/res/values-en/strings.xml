@@ -51,6 +51,7 @@
     <string name="pautas">Regs</string>
     <string name="turno">Turn</string>
     <string name="consejos">Tips</string>
+    <string name="consejo1">\nIf you have one of the following symptoms, tremor, palpitations, sweating or blurred vision and/or your blood glucose is below 60-70 mg/dl:\n\n - Take fast-absorbing carbohydrates:\n + A sugar, half a glass of juice or sugary soft drinks..\n + Prepared in gel form that contain 15 grams of glucose.\n\n  - After ingesting glucose, it is advisable to perform a second measurement after 15 minutes to verify its effect:\n + If it is already above 70 mg/dl, take a slowly absorbed carbohydrate: like a small snack\n + Yes On the other hand, the levels remain below 70 mg/dl, it is necessary to take another 15 grams of sugar quickly.\n\n  ---------------------------------------------------------</string>
     <string name="glucemia">Glycemia</string>
     <string name="introducirGluc">Value</string>
     <string name="calcularDosis">Calculate dose</string>
@@ -76,4 +77,5 @@
     <string name="turnoResopon">Resopon</string>
     <string name="sinMedicaciones">No medications</string>
     <string name="valorVacio">A blood glucose value must be indicated</string>
+    <string name="noVaciaPau">You cannot leave the list empty</string>
 </resources>

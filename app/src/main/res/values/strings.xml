@@ -55,7 +55,7 @@
     <string name="pautas">Pautas</string>
     <string name="turno">Turno</string>
     <string name="consejos">Consejos</string>
-    <string name="consejo1" translatable="false">loreipsumklasdfjalkhsdfhaskdfjaskdlfjklajsdklfjlaksjdfjaslkjd\naksdflkjasdkfjlaksjdflajsdfllkasjdflkjasdlkfjaskljdflkjsdf\naklsjdfkljaslkjdfjaksljdflkjasdf</string>
+    <string name="consejo1">"\nSi tiene uno de los siguientes síntomas, temblor, palpitaciones, sudoración o visión borrosa y/o su glucemia esta por debajo de 60-70mg/dl:\n\n  - Tome hidratos de carbono de absorción rápida :\n + Un azucarillo, medio vaso de zumo o de refrescos azucarados..\n + Preparados en forma de gel que contienen 15 gramos de glucosa.\n\n  - Tras la ingesta de glucosa, se aconseja realizar una segunda medición a los 15 minutos que verifique su efecto:\n + Si ya está por encima de los 70 mg/dl,  tome un hidrato de carbono de absorción lenta:  como un pequeño bocadillo\n + Si, por el contrario, los niveles siguen por debajo de 70 mg/dl, es necesario tomar otros 15 gramos de azúcar rápido.\n\n  ---------------------------------------------------"</string>
     <string name="glucemia">Glucemia</string>
     <string name="introducirGluc">Valor</string>
     <string name="calcularDosis">Calcular dosis</string>
@@ -82,4 +82,5 @@
     <string name="medNoVacio">El campo de nueva medicación no puede estar vacio</string>
     <string name="sinMedicaciones">Sin medicaciones</string>
     <string name="valorVacio">Debe indicarse un valor de glucemia</string>
+    <string name="noVaciaPau">No se puede  dejar la lista vacia</string>
 </resources>

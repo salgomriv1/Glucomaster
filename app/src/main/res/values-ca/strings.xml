@@ -51,7 +51,8 @@
     <string name="pautas">Pautes</string>
     <string name="turno">Torn</string>
     <string name="consejos">Consells</string>
-    <string name="glucemia">Glucèmia</string>
+    <string name="consejo1">\nSi teniu un dels símptomes següents, tremolor, palpitacions, sudoració o visió borrosa i/o la seva glucèmia aquesta per sota de 60-70mg/dl:\n\n - Agafeu hidrats de carboni d\'absorció ràpida :\n + Un sucrer, mig got de suc o de refrescos ensucrats.\n + Preparats en forma de gel que contenen 15 grams de glucosa.\n\n  - Després de la ingesta de glucosa, s\'aconsella fer un segon mesurament als 15 minuts que verifiqui el seu efecte:\n + Si ja està per sobre dels 70 mg/dl, prengui un hidrat de carboni d\'absorció lenta: com un petit entrepà\n + Si , per contra, els nivells segueixen per sota de 70 mg/dl, cal prendre altres 15 grams de sucre ràpid.\n\n  -----------------------------------------------------</string>
+    <string name="glucemia">Glucemia</string>
     <string name="introducirGluc">Valor</string>
     <string name="calcularDosis">Calcular dosis</string>
     <string name="dosis2">Dosi</string>
@@ -76,4 +77,5 @@
     <string name="turnoResopon">Ressopo</string>
     <string name="sinMedicaciones">Sense medicacions</string>
     <string name="valorVacio">Cal indicar un valor de glucèmia</string>
+    <string name="noVaciaPau">No es pot deixar la llista buida</string>
 </resources>

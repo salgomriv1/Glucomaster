@@ -2,6 +2,7 @@ package com.sgr.glucomaster
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -75,7 +76,14 @@ class ChangeRegimenActivity : AppCompatActivity(), SAdapter.OnDeleteItemClickLis
     //Function to manage recyclerView's item delete button and delete the regimen
     override fun onDeleteItemClick(item: String) {
 
-        showConfirmationDialog(item)
+        val userEmail = auth.currentUser?.email
+        val userId = database.userQueries.getUser(userEmail).executeAsOne().id
+        val lista = getRegimens(userId)
+        if (lista.size == 1) {
+
+            Toast.makeText(baseContext, R.string.noVaciaPau, Toast.LENGTH_SHORT).show()
+        } else {
+        showConfirmationDialog(item)}
 
     }
 

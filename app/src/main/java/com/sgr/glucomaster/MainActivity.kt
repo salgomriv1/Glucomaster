@@ -85,7 +85,8 @@ class MainActivity : AppCompatActivity() {
 
             //Get regimen id
             if (pauAc != null && userId != null) {
-                pautaId = database.pautaQueries.getRegByDate(pauAc, userId).executeAsOne().id
+                pautaId =
+                    database.pautaQueries.getRegByDate(pauAc, userId).executeAsOneOrNull()?.id ?: 0
             }
         }
 
